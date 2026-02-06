@@ -20,6 +20,9 @@ JD7 is a ritual technological ecosystem built on creation, protection, transform
 
 ## Author
 **Dmitrijs Jefremovs — Orchestrator of JD7**
+
 **https://JD7.link**
+
 **https://suno.com/@JDmitrijs7**
+
 **https://linkpop.com/jdmitrijs7**
