@@ -19,7 +19,7 @@ Official Web3 Ritual Tech Ecosystem by Dmitrijs.
 JD7 is a ritual technological ecosystem built on creation, protection, transformation, and justice.
 
 ## Author
-** Dmitrijs Jefremovs — Orchestrator of JD7**
-## https://JD7.link ##
-## https://suno.com/@JDmitrijs7 ##
-## https://linkpop.com/jdmitrijs7 ##
+**Dmitrijs Jefremovs — Orchestrator of JD7**
+**https://JD7.link**
+**https://suno.com/@JDmitrijs7**
+**https://linkpop.com/jdmitrijs7**
