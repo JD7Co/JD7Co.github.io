@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JD7 Portal — System v2.0</title>
+    <title>JD7 Portal — System v3.0</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,6 +15,7 @@
     <div class="nav-links">
         <a href="#principles">Principles</a>
         <a href="#modules">Modules</a>
+        <a href="#terminal">Terminal</a>
         <a href="#justice">Justice</a>
         <a href="#contact">Contact</a>
     </div>
@@ -45,10 +46,18 @@
     <div class="tag">[ AUDIO MODULE ]</div>
     <h2>JD7 Anthem</h2>
     <p class="subtitle">The sound that opens the portal.</p>
-    <div class="card neon">
+    <div class="card neon anthem-card">
         <div class="circle-pulse"></div>
-        <p>Coming soon: JD7 Anthem teaser & full ritual track.</p>
-        <a class="btn" href="#">Listen Teaser (soon)</a>
+        <div class="player">
+            <div class="player-bar">
+                <div class="player-progress"></div>
+            </div>
+            <div class="player-meta">
+                <span>JD7 Anthem — Ritual Teaser</span>
+                <span class="time">00:00 / 00:30</span>
+            </div>
+        </div>
+        <p class="hint">Audio will be added here when ready.</p>
     </div>
 </section>
 
@@ -58,35 +67,73 @@
     <div class="modules-grid">
 
         <div class="card module">
+            <div class="module-tag">[ BROWSER ]</div>
             <h3>JD7 Browser</h3>
             <p>Ritual Web3 navigator. Speed, protection, automation.</p>
         </div>
 
         <div class="card module">
+            <div class="module-tag">[ MARKETPLACE ]</div>
             <h3>JD7 Marketplace</h3>
             <p>Artifacts, NFT keys, access, ritual objects.</p>
         </div>
 
         <div class="card module">
+            <div class="module-tag">[ NFT KEYS ]</div>
             <h3>NFT Keys</h3>
             <p>Access to hidden levels of JD7.</p>
         </div>
 
         <div class="card module">
+            <div class="module-tag">[ BOTS ]</div>
             <h3>JD7 Bots</h3>
             <p>Automation that behaves like a ritual.</p>
         </div>
 
         <div class="card module">
+            <div class="module-tag">[ AVATARS ]</div>
             <h3>Avatars & Greetings</h3>
             <p>Faces and voices of JD7 across platforms.</p>
         </div>
 
         <div class="card module">
+            <div class="module-tag">[ ENERGY ]</div>
             <h3>FitLine JD7</h3>
             <p>Energy, focus and resilience for creators.</p>
         </div>
 
+    </div>
+</section>
+
+<section id="gallery" class="block">
+    <div class="tag">[ NFT / VISUAL GALLERY ]</div>
+    <h2>Visual Layer</h2>
+    <p class="subtitle">Future space for NFT keys, symbols and ritual visuals.</p>
+    <div class="gallery-grid">
+        <div class="gallery-item placeholder">NFT SLOT 01</div>
+        <div class="gallery-item placeholder">NFT SLOT 02</div>
+        <div class="gallery-item placeholder">NFT SLOT 03</div>
+    </div>
+</section>
+
+<section id="terminal" class="block">
+    <div class="tag">[ JD7 TERMINAL ]</div>
+    <h2>System Console</h2>
+    <p class="subtitle">Static preview of how JD7 command interface can look.</p>
+    <div class="terminal">
+        <div class="terminal-header">
+            <span>JD7://terminal</span>
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+        </div>
+        <div class="terminal-body">
+            <p>&gt; INIT JD7_SYSTEM</p>
+            <p>[OK] CORE_MODULES: BROWSER | NFT_KEYS | BOTS | MARKETPLACE</p>
+            <p>[OK] RITUAL_LAYER: ACTIVE</p>
+            <p>[OK] ADVOCACY_PROTOCOL: ENABLED</p>
+            <p>&gt; AWAITING_NEXT_RITUAL...</p>
+        </div>
     </div>
 </section>
 
