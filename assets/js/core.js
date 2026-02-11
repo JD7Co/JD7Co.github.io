@@ -22,3 +22,6 @@ async function connectWallet() {
         alert('Web3 кошелёк не найден');
     }
 }
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('fade');
+});
