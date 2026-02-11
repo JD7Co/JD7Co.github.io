@@ -1,0 +1,8 @@
+.ritual-glow {
+    text-shadow: 0 0 8px #E600FF, 0 0 16px #00F0FF;
+}
+
+.ritual-border {
+    border: 1px solid rgba(230, 0, 255, 0.4);
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
+}
