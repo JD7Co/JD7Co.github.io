@@ -1,0 +1,22 @@
+.jd7-avatar-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 3px solid #E600FF;
+    box-shadow: 0 0 20px #E600FF;
+    margin-bottom: 12px;
+}
+
+.jd7-avatar-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00F0FF;
+    text-shadow: 0 0 8px #00F0FF;
+}
+
+#jd7-greeting {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #FFFFFF;
+    opacity: 0.9;
+}
