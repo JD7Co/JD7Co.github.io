@@ -421,3 +421,35 @@ footer {
         margin-right: 12px;
     }
 }
+body {
+    background: #0A0A0A;
+    color: #FFFFFF;
+    font-family: Inter, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 20px;
+    background: #111111;
+    border-bottom: 1px solid #E600FF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav a {
+    margin-left: 16px;
+    color: #E600FF;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #00F0FF;
+}
+
+.intro {
+    padding: 40px;
+    text-align: center;
+}
