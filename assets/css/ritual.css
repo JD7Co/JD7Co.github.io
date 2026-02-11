@@ -14,3 +14,12 @@
     from { opacity: 0; }
     to { opacity: 1; }
 }
+.jd7-avatar-img {
+    animation: ritualPulse 4s infinite ease-in-out;
+}
+
+@keyframes ritualPulse {
+    0% { box-shadow: 0 0 10px #E600FF; }
+    50% { box-shadow: 0 0 30px #00F0FF; }
+    100% { box-shadow: 0 0 10px #E600FF; }
+}
