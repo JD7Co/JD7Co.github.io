@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('JD7 Portal v3.0 loaded');
+    console.log('JD7 Portal v3.1 loaded');
 });
+
 function loadTemplate() {
     fetch('/modules/template.html')
         .then(response => response.text())
