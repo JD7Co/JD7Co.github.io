@@ -1,12 +1,12 @@
 function ritualPulse(element) {
     if (!element) return;
     element.classList.add('ritual-glow');
+    setTimeout(() => element.classList.remove('ritual-glow'), 1500);
 }
-function loadTemplate() {
-    fetch('/modules/template.html')
-        .then(response => response.text())
-        .then(html => {
-            document.getElementById('header').innerHTML = html.split('</header>')[0] + '</header>';
-            document.getElementById('footer').innerHTML = html.split('</header>')[1];
-        });
-}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const titles = document.querySelectorAll('h1');
+    titles.forEach(t => {
+        setInterval(() => ritualPulse(t), 3000);
+    });
+});
