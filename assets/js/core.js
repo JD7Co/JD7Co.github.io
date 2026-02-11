@@ -10,3 +10,15 @@ function loadTemplate() {
         });
 }
 <div class="theme-toggle" onclick="toggleTheme()">Тема</div>
+async function connectWallet() {
+    if (window.ethereum) {
+        try {
+            const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            console.log('Wallet connected:', accounts[0]);
+        } catch (e) {
+            console.error('Wallet connection rejected');
+        }
+    } else {
+        alert('Web3 кошелёк не найден');
+    }
+}
