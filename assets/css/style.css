@@ -1,7 +1,6 @@
-assets/css/style.css
 body {
     background: #0A0A0A;
-    color: white;
+    color: #FFFFFF;
     font-family: Inter, sans-serif;
     margin: 0;
     padding: 0;
@@ -9,15 +8,18 @@ body {
 
 header {
     padding: 20px;
-    background: #111;
+    background: #111111;
     border-bottom: 1px solid #E600FF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 nav a {
-    margin-right: 20px;
+    margin-left: 16px;
     color: #E600FF;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 nav a:hover {
