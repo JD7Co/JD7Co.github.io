@@ -9,3 +9,4 @@ function loadTemplate() {
             document.getElementById('footer').innerHTML = html.split('</header>')[1];
         });
 }
+<div class="theme-toggle" onclick="toggleTheme()">Тема</div>
