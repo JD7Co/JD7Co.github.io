@@ -41,3 +41,10 @@ nav a:hover {
     cursor: pointer;
     font-weight: bold;
 }
+body {
+    background: #0A0A0A;
+    color: #FFFFFF;
+    font-family: Inter, sans-serif;
+    margin: 0;
+    padding: 0;
+}
