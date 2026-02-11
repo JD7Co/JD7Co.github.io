@@ -1,1 +1,30 @@
 assets/css/style.css
+body {
+    background: #0A0A0A;
+    color: white;
+    font-family: Inter, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 20px;
+    background: #111;
+    border-bottom: 1px solid #E600FF;
+}
+
+nav a {
+    margin-right: 20px;
+    color: #E600FF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #00F0FF;
+}
+
+.intro {
+    padding: 40px;
+    text-align: center;
+}
