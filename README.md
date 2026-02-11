@@ -26,3 +26,20 @@ JD7 is a ritual technological ecosystem built on creation, protection, transform
 **https://suno.com/@JDmitrijs7**
 
 **https://linkpop.com/jdmitrijs7**
+# JD7 Portal v3.0
+
+Ритуальная технологическая экосистема JD7 — Web3, NFT-ключи, боты, браузер, Ritual Tech.
+
+## Модули
+- JD7 Browser — портал восприятия
+- NFT Keys — ритуальные идентификаторы
+- JD7 Marketplace — пространство обмена
+- JD7 Bots — автономные агенты
+- JD7 Anthem — звуковой код
+- Avatars & Greetings — облики и приветствия
+- FitLine JD7 — энергия тела
+- Justice & Advocacy — защита и справедливость
+
+## Видение
+JD7 — это экосистема, построенная на четырёх столпах:
+**Создание. Защита. Трансформация. Справедливость.**
