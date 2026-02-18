@@ -58,6 +58,12 @@ async def cmd_status(message: types.Message):
 # Обработчик всех остальных сообщений
 @dp.message()
 async def echo(message: types.Message):
+    if message.text:
+        logger.info(f"📨 Сообщение: {message.text}")
+        await message.answer(f"Вы написали: {message.text}\n\nВведите /help для справки")
+        
+@dp.message()
+async def echo(message: types.Message):
     logger.info(f"📨 Сообщение: {message.text}")
     await message.answer(f"Вы написали: {message.text}\n\nВведите /help для справки")
 
