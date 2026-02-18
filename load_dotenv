@@ -1,0 +1,55 @@
+import os
+import logging
+import asyncio
+from dotenv import load_dotenv # Добавляем это
+from aiogram import Bot, Dispatcher, types, F
+from aiogram.filters import Command
+
+# Загружаем переменные из .env
+load_dotenv()
+
+# Логирование
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+# Берем токен из переменной окружения
+TOKEN = os.getenv("BOT_TOKEN")
+
+if not TOKEN:
+    logger.critical("❌ Ошибка: Токен бота не найден в файле .env!")
+    exit(1)
+
+bot = Bot(token=TOKEN)
+dp = Dispatcher()
+
+# ============ ОБРАБОТЧИКИ ============
+
+@dp.message(Command("start"))
+async def cmd_start(message: types.Message):
+    logger.info(f"✅ /start от {message.from_user.id}")
+    await message.answer(
+        "🤖 **JD7 System: Secure Launch**\n\n"
+        "Бот успешно загрузил токен из системы защиты.\n"
+        "Все протоколы безопасности активны. 🛡"
+    )
+
+@dp.message(Command("status"))
+async def cmd_status(message: types.Message):
+    await message.answer("✅ Бот онлайн. Соединение зашифровано.")
+
+# ============ ЗАПУСК ============
+
+async def main():
+    logger.info("🤖 Запуск защищенной сессии...")
+    try:
+        await dp.start_polling(bot)
+    except Exception as e:
+        logger.error(f"❌ Критическая ошибка: {e}")
+    finally:
+        await bot.session.close()
+
+if __name__ == "__main__":
+    asyncio.run(main())
