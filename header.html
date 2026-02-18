@@ -1,21 +1,33 @@
-<header class="jd7-header">
-  <nav class="jd7-nav">
-    <a href="/index.html" class="logo">JD7 Portal</a>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>JD7 Portal</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/scripts/include.js" defer></script>
+</head>
 
-    <ul class="nav-links">
-      <li><a href="/modules/browser.html">Браузер</a></li>
-      <li><a href="/modules/nft.html">NFT‑ключи</a></li>
-      <li><a href="/modules/marketplace.html">Маркетплейс</a></li>
-      <li><a href="/modules/bots.html">Боты</a></li>
-      <li><a href="/modules/anthem.html">Гимн</a></li>
-      <li><a href="/modules/avatars.html">Аватары</a></li>
-      <li><a href="/modules/fitline.html">FitLine</a></li>
-      <li><a href="/modules/justice.html">Правосудие</a></li>
-    </ul>
+<body>
 
-    <div class="nav-actions">
-      <button id="themeToggle">Тема</button>
-      <button id="walletConnect">Подключить кошелёк</button>
-    </div>
-  </nav>
-</header>
+  <div data-include="/components/header.html"></div>
+
+  <main class="jd7-main">
+    <h1>JD7 Portal v3.0</h1>
+    <p>Web3. NFT Keys. Bots. Ritual Tech.</p>
+
+    <section class="modules-grid">
+      <a href="/modules/browser.html" class="module-card">Браузер</a>
+      <a href="/modules/nft.html" class="module-card">NFT‑ключи</a>
+      <a href="/modules/marketplace.html" class="module-card">Маркетплейс</a>
+      <a href="/modules/bots.html" class="module-card">Боты</a>
+      <a href="/modules/anthem.html" class="module-card">Гимн</a>
+      <a href="/modules/avatars.html" class="module-card">Аватары</a>
+      <a href="/modules/fitline.html" class="module-card">FitLine</a>
+      <a href="/modules/justice.html" class="module-card">Правосудие</a>
+    </section>
+  </main>
+
+  <div data-include="/components/footer.html"></div>
+
+</body>
+</html>
