@@ -1,3 +1,9 @@
+# Должно быть:
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+TOKEN = os.getenv("TOKEN")
 import os
 import logging
 from aiogram import Bot, Dispatcher, types, F
