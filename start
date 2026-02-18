@@ -32,3 +32,14 @@ async def cmd_start(message: types.Message):
     
     # Ответ пользователю (твое меню)
     await message.answer("🦾 **JED СИСТЕМА АКТИВИРОВАНА!**\n\nВыберите сектор:")
+
+@dp.callback_query(F.data == "suno")
+async def suno_menu(callback: types.CallbackQuery):
+    await callback.message.edit_text(
+        "🎵 **Suno AI Music Hub**\n\n"
+        "Здесь вы сможете генерировать треки по текстовому описанию.\n"
+        "Скоро: прямая интеграция с JD7-Records.",
+        reply_markup=InlineKeyboardBuilder().row(
+            types.InlineKeyboardButton(text="⬅️ Назад", callback_data="main_menu")
+        ).as_markup()
+    )
