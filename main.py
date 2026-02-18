@@ -71,6 +71,8 @@ async def main():
         logger.info("=" * 50)
         logger.info("🟢 Бот ожидает сообщений...")
         logger.info("=" * 50)
+
+        await bot.delete_webhook(drop_pending_updates=True)
         
         # Запуск polling (слушает сообщения)
         await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
