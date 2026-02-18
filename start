@@ -17,4 +17,18 @@ async def cmd_start(message: types.Message):
         f"Все системы работают в штатном режиме.\n"
         f"Выберите нужный сектор:",
         reply_markup=builder.as_markup()
-    )
+  ) 
+
+ADMIN_ID = 5666795893 # Замени на свой реальный ID (можно узнать у @userinfobot)
+
+@dp.message(Command("start"))
+async def cmd_start(message: types.Message):
+    # Уведомление для тебя
+    if message.from_user.id != ADMIN_ID:
+        await bot.send_message(
+            ADMIN_ID, 
+            f"🔔 **Новый пользователь в системе!**\nИмя: {message.from_user.full_name}\nID: `{message.from_user.id}`"
+        )
+    
+    # Ответ пользователю (твое меню)
+    await message.answer("🦾 **JED СИСТЕМА АКТИВИРОВАНА!**\n\nВыберите сектор:")
