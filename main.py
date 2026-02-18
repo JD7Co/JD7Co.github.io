@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Токен
-TOKEN = "ВСТАВЬТЕ_ТОКЕН_ЗДЕСЬ"
+TOKEN = "7820178918:AAETCuw9c59S-STc7sFHPsUWvSDCpmjJ7DE"
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
