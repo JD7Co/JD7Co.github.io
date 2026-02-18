@@ -1,0 +1,20 @@
+from aiogram.utils.keyboard import InlineKeyboardBuilder
+
+@dp.message(Command("start"))
+async def cmd_start(message: types.Message):
+    logger.info(f"✅ Вход в систему: {message.from_user.id}")
+    
+    # Создаем кнопки
+    builder = InlineKeyboardBuilder()
+    builder.row(types.InlineKeyboardButton(text="📈 VIP Trading", callback_data="trade"))
+    builder.row(types.InlineKeyboardButton(text="🎵 Suno AI Hub", callback_data="suno"))
+    builder.row(types.InlineKeyboardButton(text="💰 Passive Income", url="https://pawns.app/?r=1139563"))
+    builder.row(types.InlineKeyboardButton(text="🛡 Статус Системы", callback_data="status_check"))
+
+    await message.answer(
+        f"👋 **Приветствую, Дмитрий!**\n\n"
+        f"Это центр управления **JDmitrijs7®**.\n"
+        f"Все системы работают в штатном режиме.\n"
+        f"Выберите нужный сектор:",
+        reply_markup=builder.as_markup()
+    )
