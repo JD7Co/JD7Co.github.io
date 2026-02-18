@@ -1,31 +1,29 @@
-<h1>JD7 Browser</h1>
-<p>Главный портал восприятия. Ритуальный интерфейс экосистемы JD7.</p>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>JD7 Browser</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/ritual.css">
+  <meta charset="UTF-8">
+  <title>JD7 Browser</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/scripts/include.js" defer></script>
 </head>
+
 <body>
+  <div data-include="/components/header.html"></div>
 
-<!-- HEADER -->
-<div id="header"></div>
+  <main class="module">
+    <h1>JD7 Web3 Browser</h1>
+    <p>Ритуальный интерфейс восприятия. Web3‑просмотр, ключи, сигналы.</p>
 
-<section class="content">
-    <h1 class="ritual-glow">JD7 Browser</h1>
-    <p>Главный портал восприятия. Ритуальный интерфейс JD7.</p>
-</section>
+    <section>
+      <h2>Функции</h2>
+      <ul>
+        <li>Просмотр Web3‑ресурсов</li>
+        <li>Интеграция с кошельком</li>
+        <li>Ритуальные переходы</li>
+      </ul>
+    </section>
+  </main>
 
-<!-- FOOTER -->
-<div id="footer"></div>
-
-<script src="/assets/js/core.js"></script>
-<script src="/assets/js/ritual.js"></script>
-<script>
-    loadTemplate();
-</script>
-
+  <div data-include="/components/footer.html"></div>
 </body>
 </html>
