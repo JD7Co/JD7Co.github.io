@@ -1,0 +1,15 @@
+1. Get price data (OHLCV)
+2. Calculate indicators (RSI, EMA, MACD)
+3. Get news
+4. GPT → sentiment analysis
+5. Combine signals
+6. If conditions match → open a position
+7. Stop-loss + take-profit
+
+1. Получить данные цены (OHLCV)
+2. Рассчитать индикаторы (RSI, EMA, MACD)
+3. Получить новости
+4. GPT → анализ sentiment
+5. Объединить сигналы
+6. Если совпадение условий → открыть позицию
+7. Стоп-лосс + тейк-профит
