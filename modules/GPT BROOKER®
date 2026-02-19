@@ -1,0 +1,24 @@
+import ccxt
+import openai
+import pandas as pd
+
+exchange = ccxt.binance()
+
+# Получаем данные
+bars = exchange.fetch_ohlcv('BTC/USDT', timeframe='1h', limit=100)
+df = pd.DataFrame(bars, columns=['time','open','high','low','close','volume'])
+
+# Простой сигнал
+if df['close'].iloc[-1] > df['close'].rolling(20).mean().iloc[-1]:
+    signal = "bullish"
+else:
+    signal = "bearish"
+
+# GPT анализ новости
+news_text = "Bitcoin ETF approval expected soon..."
+response = openai.ChatCompletion.create(
+    model="gpt-4o-mini",
+    messages=[{"role":"user","content":f"Is this news bullish or bearish? {news_text}"}]
+)
+
+print(signal, response)
