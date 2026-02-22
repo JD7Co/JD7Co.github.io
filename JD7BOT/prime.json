@@ -1,0 +1,13 @@
+{
+  "name": "JD7 Avatar — The Prime",
+  "series": "JD7 Signature Mix",
+  "role": "Identity",
+  "description": "The Prime is the core presence and leader of JD7.",
+  "attributes": [
+    {"trait_type": "Archetype", "value": "Leader"},
+    {"trait_type": "Energy", "value": "Core"},
+    {"trait_type": "Color", "value": "Black White Neon"},
+    {"trait_type": "Function", "value": "Identity"},
+    {"trait_type": "Ritual", "value": "Core Activation"}
+  ]
+}
