@@ -1,41 +1,108 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>JD7 Portal v3.0</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <title>JD7 Portal — Avatars, Clips, NFT, Justice</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-   <link rel="stylesheet" href="assets/css/avatars.css">
-<script src="assets/js/avatar-data.js"></script>
- 
 <body>
-
-<header>
-    <h1>JD7 Portal v3.0</h1>
-    <nav>
-        <a href="modules/browser.html">Браузер</a>
-        <a href="modules/nft-keys.html">NFT-ключи</a>
-        <a href="modules/marketplace.html">Маркетплейс</a>
-        <a href="modules/bots.html">Боты</a>
-        <a href="modules/anthem.html">Гимн</a>
-        <a href="modules/avatars.html">Аватары</a>
-        <a href="modules/fitline.html">FitLine</a>
-        <a href="modules/justice.html">Правосудие</a>
+  <header class="jd7-header">
+    <div class="logo">JD7</div>
+    <nav class="main-nav">
+      <a href="#avatars">Avatars</a>
+      <a href="#clips">Clips</a>
+      <a href="#nft">NFT</a>
+      <a href="#releases">Releases</a>
+      <a href="#justice">JD7 Justice</a>
+      <a href="#bots">Bots</a>
     </nav>
-</header>
+  </header>
 
-<section class="intro">
-    <h2>Ритуальная технологическая экосистема JD7</h2>
-    <p>Создание. Защита. Трансформация. Справедливость.</p>
-</section>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <h1>JD7 Ritual Tech Ecosystem</h1>
+      <p>Creation. Protection. Transformation. Justice.</p>
+    </section>
 
-<script src="assets/js/core.js"></script>
+    <!-- AVATARS -->
+    <section id="avatars" class="block">
+      <h2>Avatars</h2>
+      <p>10 cinematic JD7 avatars — faces of the ecosystem.</p>
+      <div class="grid">
+        <!-- Пример карточки аватара -->
+        <article class="card">
+          <h3>JD7 Avatar #1</h3>
+          <p>Role: Guardian. Style: Neon / Cyberpunk.</p>
+        </article>
+        <!-- Дальше просто копируешь/меняешь под свои 10 штук -->
+      </div>
+    </section>
+
+    <!-- CLIPS -->
+    <section id="clips" class="block">
+      <h2>Clips</h2>
+      <p>Official music videos, avatar‑driven clips, shorts.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>Clip: Transit Mix</h3>
+          <p>Official video. Avatars in lead roles.</p>
+          <!-- сюда потом встраиваешь iframe YouTube -->
+        </article>
+      </div>
+    </section>
+
+    <!-- NFT -->
+    <section id="nft" class="block">
+      <h2>NFT</h2>
+      <p>JD7 NFT Keys, avatar collections, album artifacts.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>JD7 NFT Key: Level I</h3>
+          <p>Access: basic rituals, early drops.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- RELEASES -->
+    <section id="releases" class="block">
+      <h2>Releases</h2>
+      <p>Albums, singles, remixes, multilingual lyrics.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>New Album</h3>
+          <p>Main JD7 release. Links: Spotify, Apple, YouTube.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- JD7 JUSTICE -->
+    <section id="justice" class="block">
+      <h2>JD7 Justice</h2>
+      <p>Anti‑fraud, advocacy, community protection.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>Anti‑Fraud Warning</h3>
+          <p>How to verify JD7, avoid scams, protect your assets.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- BOTS -->
+    <section id="bots" class="block">
+      <h2>JD7 Bots</h2>
+      <p>JD7BOT, JD7App, automation flows, avatar‑powered interfaces.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>JD7BOT</h3>
+          <p>Scenario: guidance, rituals, security hints.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="jd7-footer">
+    <p>© JD7 & Co — Ritual Tech Ecosystem</p>
+  </footer>
 </body>
 </html>
-
-<div class="theme-toggle" onclick="toggleTheme()">Тема</div>
-<button onclick="connectWallet()">Подключить кошелёк</button>
-<section class="avatar-section">
-    <div id="jd7-avatar"></div>
-    <div id="jd7-greeting"></div>
-</section>
