@@ -191,6 +191,20 @@ body {
 .release-thumb { color: var(--prime); }
 .bot-thumb { color: var(--guardian); }
 .justice-thumb { color: var(--sentinel); }
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+/* Цветовые роли */
+.clip-thumb { color: var(--pulse); }
+.nft-thumb { color: var(--oracle); }
+.release-thumb { color: var(--prime); }
+.bot-thumb { color: var(--guardian); }
+.justice-thumb { color: var(--sentinel); }
 
 html {
   scroll-behavior: smooth;
