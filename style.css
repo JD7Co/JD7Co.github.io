@@ -220,3 +220,19 @@ html {
 .icon-whisper::before { content: "💬"; }
 .icon-pulse::before { content: "🎵"; }
 .icon-prime::before { content: "⭐"; }
+.avatar-thumb {
+  border: 2px solid #222;
+  box-shadow: 0 0 10px rgba(255,255,255,0.05);
+}
+
+/* Цветные рамки по ролям */
+.avatar-thumb.guardian { border-color: var(--guardian); }
+.avatar-thumb.navigator { border-color: var(--navigator); }
+.avatar-thumb.architect { border-color: var(--architect); }
+.avatar-thumb.phantom { border-color: var(--phantom); }
+.avatar-thumb.oracle { border-color: var(--oracle); }
+.avatar-thumb.runner { border-color: var(--runner); }
+.avatar-thumb.sentinel { border-color: var(--sentinel); }
+.avatar-thumb.whisper { border-color: var(--whisper); }
+.avatar-thumb.pulse { border-color: var(--pulse); }
+.avatar-thumb.prime { border-color: var(--prime); }
