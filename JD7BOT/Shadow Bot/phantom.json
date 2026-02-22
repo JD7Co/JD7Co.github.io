@@ -1,0 +1,13 @@
+{
+  "name": "JD7 Avatar — The Phantom",
+  "series": "JD7 Signature Mix",
+  "role": "Shadows",
+  "description": "The Phantom protects JD7 from hidden threats.",
+  "attributes": [
+    {"trait_type": "Archetype", "value": "Shadow"},
+    {"trait_type": "Energy", "value": "Deep Quiet"},
+    {"trait_type": "Color", "value": "Black Violet"},
+    {"trait_type": "Function", "value": "Hidden Processes"},
+    {"trait_type": "Ritual", "value": "Mist"}
+  ]
+}
