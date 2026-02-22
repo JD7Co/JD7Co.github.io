@@ -1,0 +1,13 @@
+{
+  "name": "JD7 Avatar — The Runner",
+  "series": "JD7 Signature Mix",
+  "role": "Motion",
+  "description": "The Runner accelerates JD7 content and dynamics.",
+  "attributes": [
+    {"trait_type": "Archetype", "value": "Movement"},
+    {"trait_type": "Energy", "value": "Fast"},
+    {"trait_type": "Color", "value": "Red White"},
+    {"trait_type": "Function", "value": "Clips & Reels"},
+    {"trait_type": "Ritual", "value": "Leap"}
+  ]
+}
