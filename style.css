@@ -99,3 +99,25 @@ body {
   color: #666;
   font-size: 0.8rem;
 }
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.avatar-slot {
+  background: #111;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #222;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #000;
+}
