@@ -1,0 +1,13 @@
+{
+  "name": "JD7 Avatar — The Sentinel",
+  "series": "JD7 Signature Mix",
+  "role": "Defense",
+  "description": "The Sentinel stabilizes and protects JD7.",
+  "attributes": [
+    {"trait_type": "Archetype", "value": "Warrior"},
+    {"trait_type": "Energy", "value": "Heavy"},
+    {"trait_type": "Color", "value": "Steel Red"},
+    {"trait_type": "Function", "value": "Stability"},
+    {"trait_type": "Ritual", "value": "Strike"}
+  ]
+}
