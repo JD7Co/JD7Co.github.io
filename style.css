@@ -209,3 +209,14 @@ body {
 html {
   scroll-behavior: smooth;
 }
+/* MINI ICONS — JD7 PLACEHOLDERS */
+.icon-guardian::before { content: "🛡️"; }
+.icon-navigator::before { content: "🧭"; }
+.icon-architect::before { content: "📐"; }
+.icon-phantom::before { content: "🌑"; }
+.icon-oracle::before { content: "🔮"; }
+.icon-runner::before { content: "🏃"; }
+.icon-sentinel::before { content: "🚨"; }
+.icon-whisper::before { content: "💬"; }
+.icon-pulse::before { content: "🎵"; }
+.icon-prime::before { content: "⭐"; }
