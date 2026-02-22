@@ -1,0 +1,13 @@
+{
+  "name": "JD7 Avatar — The Architect",
+  "series": "JD7 Signature Mix",
+  "role": "Systems",
+  "description": "The Architect shapes the structure of JD7 with precision.",
+  "attributes": [
+    {"trait_type": "Archetype", "value": "Creator"},
+    {"trait_type": "Energy", "value": "Engineering"},
+    {"trait_type": "Color", "value": "Silver White"},
+    {"trait_type": "Function", "value": "System Logic"},
+    {"trait_type": "Ritual", "value": "Light Scheme"}
+  ]
+}
