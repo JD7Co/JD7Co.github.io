@@ -2,14 +2,14 @@ import os
 import logging
 import asyncio
 import psutil  # Мониторинг нагрузки
-from dotenv import load_dotenv
+from dotenv import load_dotenv # Импорт ОБЯЗАТЕЛЕН
 from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters import Command
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 # 1. Загрузка окружения
-load_dotenv()
-TOKEN = os.getenv("BOT_TOKEN")
+load_dotenv() # Загружаем переменные
+TOKEN = os.getenv("BOT_TOKEN") # Правильный способ получить токен
 ADMIN_ID = 5666795893  # Твой ID
 
 logging.basicConfig(level=logging.INFO)
