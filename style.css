@@ -10,7 +10,15 @@ body {
   color: #f5f5f5;
   line-height: 1.5;
 }
-
+.diagram {
+  background: #0d0d0d;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #222;
+  font-family: monospace;
+  color: #ccc;
+  white-space: pre-wrap;
+}
 .jd7-header {
   display: flex;
   justify-content: space-between;
