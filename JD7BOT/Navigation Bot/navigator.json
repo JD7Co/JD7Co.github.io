@@ -1,0 +1,13 @@
+{
+  "name": "JD7 Avatar — The Navigator",
+  "series": "JD7 Signature Mix",
+  "role": "Strategy",
+  "description": "The Navigator builds routes and decisions with absolute clarity.",
+  "attributes": [
+    {"trait_type": "Archetype", "value": "Strategist"},
+    {"trait_type": "Energy", "value": "Analytical"},
+    {"trait_type": "Color", "value": "Graphite White"},
+    {"trait_type": "Function", "value": "Navigation"},
+    {"trait_type": "Ritual", "value": "Path of Points"}
+  ]
+}
