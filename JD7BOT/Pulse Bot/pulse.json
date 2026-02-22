@@ -1,0 +1,13 @@
+{
+  "name": "JD7 Avatar — The Pulse",
+  "series": "JD7 Signature Mix",
+  "role": "Rhythm",
+  "description": "The Pulse is the musical heart of JD7.",
+  "attributes": [
+    {"trait_type": "Archetype", "value": "Musician"},
+    {"trait_type": "Energy", "value": "Creative"},
+    {"trait_type": "Color", "value": "Neon Fuchsia"},
+    {"trait_type": "Function", "value": "Music"},
+    {"trait_type": "Ritual", "value": "Beat"}
+  ]
+}
