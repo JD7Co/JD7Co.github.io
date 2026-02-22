@@ -114,6 +114,44 @@ body {
   border: 1px solid #222;
 }
 
+.avatar-thumb {
+  width: 100%;
+  height: 160px;
+  border-radius: 8px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+/* Цвета ролей */
+:root {
+  --guardian: #3b82f6;
+  --navigator: #e5e7eb;
+  --architect: #d1d5db;
+  --phantom: #4b5563;
+  --oracle: #8b5cf6;
+  --runner: #ef4444;
+  --sentinel: #b91c1c;
+  --whisper: #facc15;
+  --pulse: #ec4899;
+  --prime: #ffffff;
+}
+
+.avatar-thumb.guardian { color: var(--guardian); }
+.avatar-thumb.navigator { color: var(--navigator); }
+.avatar-thumb.architect { color: var(--architect); }
+.avatar-thumb.phantom { color: var(--phantom); }
+.avatar-thumb.oracle { color: var(--oracle); }
+.avatar-thumb.runner { color: var(--runner); }
+.avatar-thumb.sentinel { color: var(--sentinel); }
+.avatar-thumb.whisper { color: var(--whisper); }
+.avatar-thumb.pulse { color: var(--pulse); }
+.avatar-thumb.prime { color: var(--prime); }
+}
+
 .avatar-img {
   width: 100%;
   height: 180px;
