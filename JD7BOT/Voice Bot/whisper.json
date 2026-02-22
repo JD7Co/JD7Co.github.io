@@ -1,0 +1,13 @@
+{
+  "name": "JD7 Avatar — The Whisper",
+  "series": "JD7 Signature Mix",
+  "role": "Communication",
+  "description": "The Whisper carries the voice of JD7.",
+  "attributes": [
+    {"trait_type": "Archetype", "value": "Communicator"},
+    {"trait_type": "Energy", "value": "Soft"},
+    {"trait_type": "Color", "value": "Gold White"},
+    {"trait_type": "Function", "value": "Social Voice"},
+    {"trait_type": "Ritual", "value": "Voice"}
+  ]
+}
