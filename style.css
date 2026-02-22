@@ -1,3 +1,10 @@
+/* SECTION COLOR ACCENTS */
+#avatars h2 { color: var(--prime); }
+#clips h2 { color: var(--pulse); }
+#nft h2 { color: var(--oracle); }
+#releases h2 { color: var(--prime); }
+#justice h2 { color: var(--sentinel); }
+#bots h2 { color: var(--guardian); }
 * {
   box-sizing: border-box;
   margin: 0;
