@@ -1,0 +1,13 @@
+{
+  "name": "JD7 Avatar — The Oracle",
+  "series": "JD7 Signature Mix",
+  "role": "Insight",
+  "description": "The Oracle reads signals and future patterns.",
+  "attributes": [
+    {"trait_type": "Archetype", "value": "Seer"},
+    {"trait_type": "Energy", "value": "Intuitive"},
+    {"trait_type": "Color", "value": "Turquoise Purple"},
+    {"trait_type": "Function", "value": "Prediction"},
+    {"trait_type": "Ritual", "value": "Wave"}
+  ]
+}
