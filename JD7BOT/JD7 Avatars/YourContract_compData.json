@@ -1,0 +1,47 @@
+{
+	"compilerInput": "{\"language\":\"Solidity\",\"sources\":{\"tests/JD7 NFT_test.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\ncontract YourContract {\\n    // Your contract code here\\n}\"}},\"settings\":{\"optimizer\":{\"enabled\":false,\"runs\":200},\"outputSelection\":{\"*\":{\"\":[\"ast\"],\"*\":[\"abi\",\"metadata\",\"devdoc\",\"userdoc\",\"storageLayout\",\"evm.legacyAssembly\",\"evm.bytecode\",\"evm.deployedBytecode\",\"evm.methodIdentifiers\",\"evm.gasEstimates\",\"evm.assembly\"]}},\"remappings\":[]}}",
+	"name": "YourContract",
+	"metadata": "{\"compiler\":{\"version\":\"0.8.31+commit.fd3a2265\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"tests/JD7 NFT_test.sol\":\"YourContract\"},\"evmVersion\":\"osaka\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"tests/JD7 NFT_test.sol\":{\"keccak256\":\"0x22df9f1677c8f1d414abc8dd43fdc65f90f3f7980b4f2e56be927f878a92cd4c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c14174a3dfe32957317e232200f3fb4faf516699f81bba71d56f5779ce1b0028\",\"dweb:/ipfs/QmXTzu15c3suw5495DPiCSvzmK12cTKb5PLqEPaRJ1QvDz\"]}},\"version\":1}",
+	"bytecode": {
+		"functionDebugData": {},
+		"generatedSources": [],
+		"linkReferences": {},
+		"object": "6080604052348015600e575f5ffd5b50603e80601a5f395ff3fe60806040525f5ffdfea26469706673582212206163691e24071fb69bd3f4447462eb9a30581b80edf6474b4742e0a267d5c89664736f6c634300081f0033",
+		"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xE JUMPI PUSH0 PUSH0 REVERT JUMPDEST POP PUSH1 0x3E DUP1 PUSH1 0x1A PUSH0 CODECOPY PUSH0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 PUSH0 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 PUSH2 0x6369 CLZ 0x24 SMOD 0x1F 0xB6 SWAP12 0xD3 DELEGATECALL PREVRANDAO PUSH21 0x62EB9A30581B80EDF6474B4742E0A267D5C8966473 PUSH16 0x6C634300081F00330000000000000000 ",
+		"sourceMap": "57:56:0:-:0;;;;;;;;;;;;;;;;;;;"
+	},
+	"abi": [],
+	"storageLayout": {
+		"storage": [],
+		"types": null
+	},
+	"web3Deploy": "var yourcontractContract = new web3.eth.Contract([]);\nvar yourcontract = yourcontractContract.deploy({\n     data: '0x6080604052348015600e575f5ffd5b50603e80601a5f395ff3fe60806040525f5ffdfea26469706673582212206163691e24071fb69bd3f4447462eb9a30581b80edf6474b4742e0a267d5c89664736f6c634300081f0033', \n     arguments: [\n     ]\n}).send({\n     from: web3.eth.accounts[0], \n     gas: '4700000'\n   }, function (e, contract){\n    console.log(e, contract);\n    if (typeof contract.address !== 'undefined') {\n         console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);\n    }\n })",
+	"functionHashes": {},
+	"gasEstimates": {
+		"Creation": {
+			"codeDepositCost": "12400",
+			"executionCost": "64",
+			"totalCost": "12464"
+		}
+	},
+	"devdoc": {
+		"kind": "dev",
+		"methods": {},
+		"version": 1
+	},
+	"userdoc": {
+		"kind": "user",
+		"methods": {},
+		"version": 1
+	},
+	"Runtime Bytecode": {
+		"functionDebugData": {},
+		"generatedSources": [],
+		"immutableReferences": {},
+		"linkReferences": {},
+		"object": "60806040525f5ffdfea26469706673582212206163691e24071fb69bd3f4447462eb9a30581b80edf6474b4742e0a267d5c89664736f6c634300081f0033",
+		"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 PUSH0 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 PUSH2 0x6369 CLZ 0x24 SMOD 0x1F 0xB6 SWAP12 0xD3 DELEGATECALL PREVRANDAO PUSH21 0x62EB9A30581B80EDF6474B4742E0A267D5C8966473 PUSH16 0x6C634300081F00330000000000000000 ",
+		"sourceMap": "57:56:0:-:0;;;;;"
+	},
+	"Assembly": ".code\n  PUSH 80\t\t\tcontract YourContract {\\n    /...\n  PUSH 40\t\t\tcontract YourContract {\\n    /...\n  MSTORE \t\t\tcontract YourContract {\\n    /...\n  CALLVALUE \t\t\tcontract YourContract {\\n    /...\n  DUP1 \t\t\tcontract YourContract {\\n    /...\n  ISZERO \t\t\tcontract YourContract {\\n    /...\n  PUSH [tag] 1\t\t\tcontract YourContract {\\n    /...\n  JUMPI \t\t\tcontract YourContract {\\n    /...\n  PUSH 0\t\t\tcontract YourContract {\\n    /...\n  PUSH 0\t\t\tcontract YourContract {\\n    /...\n  REVERT \t\t\tcontract YourContract {\\n    /...\ntag 1\t\t\tcontract YourContract {\\n    /...\n  JUMPDEST \t\t\tcontract YourContract {\\n    /...\n  POP \t\t\tcontract YourContract {\\n    /...\n  PUSH #[$] 0000000000000000000000000000000000000000000000000000000000000000\t\t\tcontract YourContract {\\n    /...\n  DUP1 \t\t\tcontract YourContract {\\n    /...\n  PUSH [$] 0000000000000000000000000000000000000000000000000000000000000000\t\t\tcontract YourContract {\\n    /...\n  PUSH 0\t\t\tcontract YourContract {\\n    /...\n  CODECOPY \t\t\tcontract YourContract {\\n    /...\n  PUSH 0\t\t\tcontract YourContract {\\n    /...\n  RETURN \t\t\tcontract YourContract {\\n    /...\n.data\n  0:\n    .code\n      PUSH 80\t\t\tcontract YourContract {\\n    /...\n      PUSH 40\t\t\tcontract YourContract {\\n    /...\n      MSTORE \t\t\tcontract YourContract {\\n    /...\n      PUSH 0\t\t\tcontract YourContract {\\n    /...\n      PUSH 0\t\t\tcontract YourContract {\\n    /...\n      REVERT \t\t\tcontract YourContract {\\n    /...\n    .data\n"
+}
