@@ -1,0 +1,1 @@
+const GAS_API = import.meta.env.VITE_INFURA_GAS_API;
