@@ -45,3 +45,22 @@
 	},
 	"Assembly": ".code\n  PUSH 80\t\t\tcontract YourContract {\\n    /...\n  PUSH 40\t\t\tcontract YourContract {\\n    /...\n  MSTORE \t\t\tcontract YourContract {\\n    /...\n  CALLVALUE \t\t\tcontract YourContract {\\n    /...\n  DUP1 \t\t\tcontract YourContract {\\n    /...\n  ISZERO \t\t\tcontract YourContract {\\n    /...\n  PUSH [tag] 1\t\t\tcontract YourContract {\\n    /...\n  JUMPI \t\t\tcontract YourContract {\\n    /...\n  PUSH 0\t\t\tcontract YourContract {\\n    /...\n  PUSH 0\t\t\tcontract YourContract {\\n    /...\n  REVERT \t\t\tcontract YourContract {\\n    /...\ntag 1\t\t\tcontract YourContract {\\n    /...\n  JUMPDEST \t\t\tcontract YourContract {\\n    /...\n  POP \t\t\tcontract YourContract {\\n    /...\n  PUSH #[$] 0000000000000000000000000000000000000000000000000000000000000000\t\t\tcontract YourContract {\\n    /...\n  DUP1 \t\t\tcontract YourContract {\\n    /...\n  PUSH [$] 0000000000000000000000000000000000000000000000000000000000000000\t\t\tcontract YourContract {\\n    /...\n  PUSH 0\t\t\tcontract YourContract {\\n    /...\n  CODECOPY \t\t\tcontract YourContract {\\n    /...\n  PUSH 0\t\t\tcontract YourContract {\\n    /...\n  RETURN \t\t\tcontract YourContract {\\n    /...\n.data\n  0:\n    .code\n      PUSH 80\t\t\tcontract YourContract {\\n    /...\n      PUSH 40\t\t\tcontract YourContract {\\n    /...\n      MSTORE \t\t\tcontract YourContract {\\n    /...\n      PUSH 0\t\t\tcontract YourContract {\\n    /...\n      PUSH 0\t\t\tcontract YourContract {\\n    /...\n      REVERT \t\t\tcontract YourContract {\\n    /...\n    .data\n"
 }
+
+VITE_INFURA_GAS_API=https://gas.api.infura.io/v3/1ecfef9c821141fc8ae5072aa9969bb9
+VITE_INFURA_RPC=https://mainnet.infura.io/v3/<your-key>
+
+const GAS_API = import.meta.env.VITE_INFURA_GAS_API;
+
+async function getGasFees() {
+  const response = await fetch(`${GAS_API}/fee-history`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      blockCount: 5,
+      newestBlock: "latest",
+      rewardPercentiles: [5, 50, 95]
+    })
+  });
+
+  return await response.json();
+}
