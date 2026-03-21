@@ -1,0 +1,119 @@
+{
+  "id": "6cmEab",
+  "seed": "c20efe5bd238a2c46fe69cfbfc4209e20e0b86925fddcd213b76fd502335f7c6",
+  "size": 1000000,
+  "algo": "rx/0",
+  "status": 3,
+  "version": "6.21.2-C3Pool",
+  "created": 1715306323987,
+  "start_ts": 1715306324978,
+  "done_ts": 1715307671047,
+  "modified": 1715307715714,
+  "steady_ready_ts": 1040406044,
+  "steady_start_ts": 1040406911,
+  "steady_done_ts": 1041751951,
+  "revision": 1,
+  "duration": 1346069,
+  "hash": "082A05B744133219",
+  "threads": 4,
+  "threads_ok": false,
+  "hashrate": 742.9039670328935,
+  "hashrate_1t": 185.7259917582234,
+  "ua": "XMRig/6.21.2-C3Pool (Macintosh; macOS; x86_64) libuv/1.48.0 clang/14.0.0",
+  "os": "macos",
+  "user": "6fd97fca",
+  "uid": "CSHBvy1J4Ym2FP",
+  "cpu": {
+    "brand": "VirtualApple @ 2.50GHz",
+    "family": 6,
+    "model": 44,
+    "stepping": 0,
+    "proc_info": 132800,
+    "aes": true,
+    "avx2": false,
+    "x64": true,
+    "64_bit": true,
+    "l2": 8388608,
+    "l3": 0,
+    "cores": 8,
+    "threads": 8,
+    "packages": 1,
+    "nodes": 1,
+    "backend": "hwloc/2.1.0",
+    "msr": "none",
+    "assembly": "intel",
+    "arch": "x86_64",
+    "flags": [
+      "aes",
+      "sse2",
+      "ssse3",
+      "sse4.1",
+      "popcnt"
+    ],
+    "vendor": "other"
+  },
+  "dmi": null,
+  "backend": {
+    "type": "cpu",
+    "enabled": true,
+    "algo": "rx/0",
+    "profile": "rx",
+    "hw-aes": true,
+    "priority": 2,
+    "msr": false,
+    "asm": "intel",
+    "argon2-impl": "SSSE3",
+    "hugepages": [
+      0,
+      1172
+    ],
+    "memory": 8388608,
+    "hashrate": [
+      779.38,
+      703.79,
+      743.94
+    ],
+    "threads": [
+      {
+        "intensity": 1,
+        "affinity": 0,
+        "av": 1,
+        "hashrate": [
+          201.59,
+          181.57,
+          192.43
+        ]
+      },
+      {
+        "intensity": 1,
+        "affinity": 1,
+        "av": 1,
+        "hashrate": [
+          188.88,
+          170.67000000000004,
+          180.22
+        ]
+      },
+      {
+        "intensity": 1,
+        "affinity": 4,
+        "av": 1,
+        "hashrate": [
+          200.86,
+          181.09,
+          191.51
+        ]
+      },
+      {
+        "intensity": 1,
+        "affinity": 5,
+        "av": 1,
+        "hashrate": [
+          188.04,
+          170.45000000000005,
+          179.77
+        ]
+      }
+    ]
+  }
+}
