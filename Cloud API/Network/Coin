@@ -1,0 +1,3 @@
+Get : https://api.xmrig.com/1/network/:coin
+
+For API output this is uppercase string with coin code, for example: "XMR", "SUMO", "WOW". For API input parameters this is case insensitive string with coin code or name.
