@@ -1,0 +1,10 @@
+API : Benchmark
+Get : https://api.xmrig.com/1/benchmark/:id
+Get a full benchmark object with specified id. Live example : 
+ AMD Eng Sample: 100-000000053-04_32/20_N - RandomX - 10MH - 98.228 seconds
+ Validated
+Algorithm	: RandomX
+Hashrate:	101803.97 H/s / single thread: 397.67 H/s
+Duration	10MH: 98.228 seconds / 1MH: 9.823 seconds
+User Agent	: XMRig/6.5.3 (Windows NT 10.0; Win64; x64) libuv/1.40.0 gcc/10.2.0
+Submitted	: 5 years ago.
