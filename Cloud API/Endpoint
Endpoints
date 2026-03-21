@@ -3,8 +3,37 @@ Get : https://api.xmrig.com/1/benchmark/:id
 Get a full benchmark object with specified id. Live example : 
  AMD Eng Sample: 100-000000053-04_32/20_N - RandomX - 10MH - 98.228 seconds
  Validated
-Algorithm	: RandomX
-Hashrate:	101803.97 H/s / single thread: 397.67 H/s
-Duration	10MH: 98.228 seconds / 1MH: 9.823 seconds
-User Agent	: XMRig/6.5.3 (Windows NT 10.0; Win64; x64) libuv/1.40.0 gcc/10.2.0
-Submitted	: 5 years ago.
+ Algorithm	: RandomX
+  Hashrate:	101803.97 H/s / single thread: 397.67 H/s
+ Duration	10MH: 98.228 seconds / 1MH: 9.823 seconds
+  User Agent	: XMRig/6.5.3 (Windows NT 10.0; Win64; x64) libuv/1.40.0 gcc/10.2.0
+ Submitted	: 5 years ago.
+
+GET :
+https://api.xmrig.com/1/benchmarks
+Get :
+https://api.xmrig.com/1/benchmarks?algo=:algo
+Get :
+https://api.xmrig.com/1/benchmarks/:threads
+Get :
+https://api.xmrig.com/1/benchmarks/:threads?algo=:algo
+
+ Get an array of top benchmark results ordered by hashrate with optional parameters: algo and threads. Main benchmark page uses this API endpoints.
+
+ Get :
+https://api.xmrig.com/1/benchmarks?cpu=:cpu
+Get : 
+https://api.xmrig.com/1/benchmarks?algo=:algo&cpu=:cpu
+
+Get an array of compact benchmarks objects ordered by hashrate with required parameter cpu and optional algo.
+
+Get :
+https://api.xmrig.com/1/benchmarks/recent
+Get :
+https://api.xmrig.com/1/benchmarks/recent?limit=:limit
+
+Get an array of recently submitted benchmarks with optional limit parameter (1-100).
+
+POST
+https://api.xmrig.com/1/benchmark
+Create a benchmark and get initial benchmark parameters, this API endpoint used internally by XMRig miner.
