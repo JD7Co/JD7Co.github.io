@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>JD7Co Digital Hub</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent: #f59e0b;
+            --bg-light: #f8fafc;
+            --bg-dark: #0f172a;
+            --card-light: #ffffff;
+            --card-dark: #1e293b;
+            --text-light: #1e293b;
+            --text-dark: #f1f5f9;
+            --gray: #64748b;
+            --safe-top: env(safe-area-inset-top, 20px);
+            --safe-bottom: env(safe-area-inset-bottom, 20px);
+            --safe-left: env(safe-area-inset-left, 16px);
+            --safe-right: env(safe-area-inset-right, 16px);
+            
+            --current-bg: var(--bg-light);
+            --current-card: var(--card-light);
+            --current-text: var(--text-light);
+        }
+
+        body.dark-mode {
+            --current-bg: var(--bg-dark);
+            --current-card: var(--card-dark);
+            --current-text: var(--text-dark);
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: var(--current-bg);
+            color: var(--current-text);
+            font-family: 'Helvetica', Arial, sans-serif;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow: hidden;
+        }
+
+        #app-shell {
+            width: min(90vw, 1200px);
+            max-height: 90vh;
+            height: 100%;
+            background: var(--current-card);
+            border-radius: clamp(1rem, 3vw, 2rem);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(128, 128, 128, 0.1);
+        }
+
+        header {
+            padding: var(--safe-top) var(--safe-right) 1rem var(--safe-left);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+            background: var(--current-card);
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-toggle {
+            background: rgba(128, 128, 128, 0.1);
+            border: none;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.9);
+        }
+
+        main {
+            flex: 1;
+            overflow-y: auto;
+            padding: clamp(1rem, 4vw, 2rem);
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .view {
+            display: none;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.5rem, 6vw, 2.5rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            color: var(--gray);
+            font-size: clamp(1rem, 3vw, 1.2rem);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(1rem, 3vw, 1.5rem);
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(128, 128, 128, 0.05);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card h3 {
+            margin: 0 0 0.5rem 0;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            margin: 0.2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        input, textarea {
+            padding: 0.8rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(128, 128, 128, 0.3);
+            background: var(--current-card);
+            color: var(--current-text);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: 2px solid var(--primary);
+            border-color: transparent;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn:active {
+            background: var(--primary-dark);
+            transform: scale(0.98);
+        }
+
+        nav {
+            padding: 0.5rem var(--safe-right) var(--safe-bottom) var(--safe-left);
+            background: var(--current-card);
+            border-top: 1px solid rgba(128, 128, 128, 0.1);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.7rem;
+            padding: 0.5rem;
+            flex: 1;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+        }
+
+        .nav-icon {
+            font-size: 1.4rem;
+        }
+
+        /* Custom Time Picker Modal */
+        #timePickerModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--current-card);
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .time-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .time-select {
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--gray);
+            background: var(--current-card);
+            color: var(--current-text);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 480px) {
+            #app-shell {
+                width: 100vw;
+                height: 100vh;
+                max-height: 100vh;
+                border-radius: 0;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app-shell">
+        <header>
+            <div class="logo">🚀 JD7Co</div>
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
+        </header>
+
+        <main id="main-content">
+            <!-- Home View -->
+            <section id="home" class="view active">
+                <div class="hero">
+                    <h1>Welcome Back</h1>
+                    <p>Your Android-optimized digital workspace.</p>
+                </div>
+                <div class="grid">
+                    <div class="card" onclick="switchTab('projects')">
+                        <span class="card-icon">📂</span>
+                        <h3>My Projects</h3>
+                        <p>Explore the latest applications and open-source contributions.</p>
+                    </div>
+                    <div class="card" onclick="switchTab('skills')">
+                        <span class="card-icon">⚡</span>
+                        <h3>Tech Stack</h3>
+                        <p>A comprehensive list of tools and technologies I master.</p>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; padding: 1rem; background: rgba(37, 99, 235, 0.1); border-radius: 1rem;">
+                    <h4 style="margin-top: 0;">📌 Quick Note</h4>
+                    <textarea id="quickNote" placeholder="Type a quick note here... it saves automatically!" style="width: 100%; box-sizing: border-box; min-height: 80px; border: none; background: transparent; resize: none;"></textarea>
+                </div>
+            </section>
+
+            <!-- Projects View -->
+            <section id="projects" class="view">
+                <h2>Recent Projects</h2>
+                <div class="grid">
+                    <div class="card">
+                        <span class="card-icon">📱</span>
+                        <h3>Mobile UI Kit</h3>
+                        <p>A lightweight CSS framework for mobile-first web apps.</p>
+                        <div style="margin-top: 10px;">
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JS</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <span class="card-icon">🛡️</span>
+                        <h3>SecureAuth</h3>
+                        <p>End-to-end encrypted authentication module for Node.js.</p>
+                        <div style="margin-top: 10px;">
+                            <span class="skill-tag">Node</span>
+                            <span class="skill-tag">Crypto</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <span class="card-icon">📊</span>
+                        <h3>DataViz Pro</h3>
+                        <p>Interactive dashboard for visualizing real-time metrics.</p>
+                        <div style="margin-top: 10px;">
+                            <span class="skill-tag">D3.js</span>
+                            <span class="skill-tag">API</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills View -->
+            <section id="skills" class="view">
+                <h2>Technical Skills</h2>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+                    <div style="flex: 1; min-width: 250px; background: rgba(128,128,128,0.05); padding: 1.5rem; border-radius: 1rem;">
+                        <h3>Frontend</h3>
+                        <p>HTML5, CSS3, JavaScript (ES6+)</p>
+                        <p>React, Vue.js, Tailwind CSS</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; background: rgba(128,128,128,0.05); padding: 1.5rem; border-radius: 1rem;">
+                        <h3>Backend</h3>
+                        <p>Node.js, Express, Python</p>
+                        <p>PostgreSQL, MongoDB, Redis</p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; background: rgba(128,128,128,0.05); padding: 1.5rem; border-radius: 1rem;">
+                        <h3>DevOps</h3>
+                        <p>Docker, GitHub Actions, AWS</p>
+                        <p>Linux Server Management</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact View -->
+            <section id="contact" class="view">
+                <h2>Get In Touch</h2>
+                <div class="contact-form">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="contactName" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Preferred Contact Time</label>
+                        <input type="text" id="contactTime" placeholder="Select Time" readonly onclick="showTimePicker(this)" style="cursor: pointer;">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea id="contactMsg" rows="4" placeholder="How can I help you?"></textarea>
+                    </div>
+                    <button class="btn" onclick="submitForm()">
+                        <span>Send Message</span>
+                        <span>📩</span>
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <nav>
+            <div class="nav-item active" onclick="switchTab('home')" id="nav-home">
+                <span class="nav-icon">🏠</span>
+                <span>Home</span>
+            </div>
+            <div class="nav-item" onclick="switchTab('projects')" id="nav-projects">
+                <span class="nav-icon">🚀</span>
+                <span>Projects</span>
+            </div>
+            <div class="nav-item" onclick="switchTab('skills')" id="nav-skills">
+                <span class="nav-icon">🛠</span>
+                <span>Skills</span>
+            </div>
+            <div class="nav-item" onclick="switchTab('contact')" id="nav-contact">
+                <span class="nav-icon">📧</span>
+                <span>Contact</span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Custom Time Picker Modal -->
+    <div id="timePickerModal">
+        <div class="modal-content">
+            <h3>Select Time</h3>
+            <div class="time-grid">
+                <select id="hourSelect" class="time-select">
+                    <!-- JS populated -->
+                </select>
+                <select id="minSelect" class="time-select">
+                    <!-- JS populated -->
+                </select>
+            </div>
+            <button class="btn" onclick="confirmTime()" style="width: 100%;">Set Time</button>
+            <button class="btn" onclick="closeTimePicker()" style="width: 100%; margin-top: 0.5rem; background: var(--gray);">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        const APP_STORAGE_KEY = 'JD7CO_PORTFOLIO_APP';
+        window.APP_STORAGE_KEY = APP_STORAGE_KEY;
+
+        let appState = {
+            theme: 'light',
+            activeTab: 'home',
+            quickNote: '',
+            lastContactName: ''
+        };
+
+        // Initialize App
+        window.addEventListener('load', () => {
+            loadData();
+            initTimePickerOptions();
+            
+            // Android Focus Management
+            document.addEventListener("focusin", function(e) {
+                if (e.target.tagName === "INPUT" && e.target.type !== "text") {
+                    setTimeout(() => e.target.blur(), 100);
+                }
+            });
+
+            // Double click zoom prevention
+            document.body.addEventListener('dblclick', function(event) {
+                event.preventDefault();
+            });
+
+            // Auto-save notes
+            document.getElementById('quickNote').addEventListener('input', (e) => {
+                appState.quickNote = e.target.value;
+                saveData();
+            });
+        });
+
+        function switchTab(tabId) {
+            // Update UI
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('nav-' + tabId).classList.add('active');
+            
+            // Update State
+            appState.activeTab = tabId;
+            saveData();
+            
+            // Scroll to top of main
+            document.getElementById('main-content').scrollTop = 0;
+        }
+
+        function toggleTheme() {
+            const isDark = document.body.classList.toggle('dark-mode');
+            appState.theme = isDark ? 'dark' : 'light';
+            document.getElementById('themeBtn').innerText = isDark ? '☀️' : '🌙';
+            saveData();
+        }
+
+        function saveData() {
+            localStorage.setItem(APP_STORAGE_KEY + '_data', JSON.stringify(appState));
+        }
+
+        function loadData() {
+            const saved = localStorage.getItem(APP_STORAGE_KEY + '_data');
+            if (saved) {
+                appState = JSON.parse(saved);
+                
+                // Apply theme
+                if (appState.theme === 'dark') {
+                    document.body.classList.add('dark-mode');
+                    document.getElementById('themeBtn').innerText = '☀️';
+                }
+                
+                // Apply tab
+                switchTab(appState.activeTab);
+                
+                // Apply note
+                document.getElementById('quickNote').value = appState.quickNote || '';
+                document.getElementById('contactName').value = appState.lastContactName || '';
+            }
+        }
+
+        // Custom Time Picker Logic
+        function initTimePickerOptions() {
+            const hSelect = document.getElementById('hourSelect');
+            const mSelect = document.getElementById('minSelect');
+            
+            for(let i=0; i<24; i++) {
+                let opt = document.createElement('option');
+                opt.value = i.toString().padStart(2, '0');
+                opt.innerText = i.toString().padStart(2, '0');
+                hSelect.appendChild(opt);
+            }
+            
+            for(let i=0; i<60; i+=5) {
+                let opt = document.createElement('option');
+                opt.value = i.toString().padStart(2, '0');
+                opt.innerText = i.toString().padStart(2, '0');
+                mSelect.appendChild(opt);
+            }
+        }
+
+        function showTimePicker(input) {
+            input.blur();
+            document.activeElement.blur();
+            const modal = document.getElementById("timePickerModal");
+            modal.style.display = "flex";
+            modal.dataset.targetInput = input.id;
+        }
+
+        function closeTimePicker() {
+            document.getElementById("timePickerModal").style.display = "none";
+        }
+
+        function confirmTime() {
+            const modal = document.getElementById("timePickerModal");
+            const inputId = modal.dataset.targetInput;
+            const h = document.getElementById('hourSelect').value;
+            const m = document.getElementById('minSelect').value;
+            
+            document.getElementById(inputId).value = `${h}:${m}`;
+            closeTimePicker();
+        }
+
+        function submitForm() {
+            const name = document.getElementById('contactName').value;
+            if(!name) {
+                alert("Please enter your name!");
+                return;
+            }
+            
+            appState.lastContactName = name;
+            saveData();
+            
+            alert(`Thanks ${name}! This is a demo app. In a real scenario, this would send an email.`);
+            
+            // Reset form
+            document.getElementById('contactName').value = '';
+            document.getElementById('contactTime').value = '';
+            document.getElementById('contactMsg').value = '';
+        }
+    </script>
+</body>
+</html>
