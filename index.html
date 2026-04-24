@@ -23,18 +23,20 @@
       padding: 20px;
       margin: 0;
       overflow-x: hidden;
-      position: relative; /* FIX */
+      position: relative;
+      z-index: 0;
     }
 
-    /* PARALLAX BACKGROUND LINES — FIXED */
+    /* FIXED PARALLAX BACKGROUND — SAFE VERSION */
     .bg-lines {
       position: fixed;
       top: 0;
       left: 0;
-      width: 150%;
-      height: 150%;
-      pointer-events: none; /* FIX */
-      z-index: -1; /* FIX */
+      width: 200%;
+      height: 200%;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.25;
       background: repeating-linear-gradient(
         90deg,
         rgba(125,249,255,0.05) 0px,
@@ -42,12 +44,12 @@
         transparent 1px,
         transparent 80px
       );
-      animation: moveLines 25s linear infinite;
+      animation: moveLines 30s linear infinite;
     }
 
     @keyframes moveLines {
       from { transform: translateX(0); }
-      to { transform: translateX(-400px); }
+      to { transform: translateX(-300px); }
     }
 
     /* HERO */
@@ -122,4 +124,285 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 20px;
-      margin
+      margin-bottom: 50px;
+    }
+
+    .avatar-card {
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #333;
+      background: rgba(255,255,255,0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .avatar-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 0 18px rgba(125,249,255,0.25);
+      border-color: #7df9ff;
+    }
+
+    .avatar-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .avatar-role {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* Neon role colors */
+    .guardian { color: #7df9ff; }
+    .navigator { color: #ffcc66; }
+    .architect { color: #66ff99; }
+    .phantom { color: #b366ff; }
+    .oracle { color: #ff66cc; }
+    .runner { color: #ff6666; }
+    .sentinel { color: #66aaff; }
+    .whisper { color: #ccccff; }
+    .pulse { color: #ff6699; }
+    .prime { color: #ffffff; }
+
+    /* MINI SECTIONS */
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .section h2 {
+      color: #7df9ff;
+      margin-bottom: 10px;
+      position: relative;
+      padding-bottom: 6px;
+    }
+
+    .section h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, #7df9ff, transparent);
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .mini-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .mini-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 0 18px rgba(125,249,255,0.25);
+      border-color: #7df9ff;
+    }
+
+    footer {
+      text-align: center;
+      opacity: 0.5;
+      margin-top: 40px;
+      padding-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<div id="jd7-menu"></div>
+
+<!-- FALLBACK MENU -->
+<div id="jd7-menu-fallback" style="display:none; padding:10px; background:#111; border-bottom:1px solid #333;">
+  <a href="/world/" style="color:#7df9ff; margin-right:10px;">WORLD</a>
+  <a href="/school/" style="color:#7df9ff; margin-right:10px;">SCHOOL</a>
+  <a href="/nft/" style="color:#7df9ff; margin-right:10px;">NFT</a>
+  <a href="/bots/" style="color:#7df9ff; margin-right:10px;">BOTS</a>
+  <a href="/questrun/" style="color:#7df9ff;">QUEST</a>
+</div>
+
+<script>
+  fetch('/core/jd7-menu.html')
+    .then(r => {
+      if (!r.ok) throw new Error("Menu not found");
+      return r.text();
+    })
+    .then(html => {
+      document.getElementById('jd7-menu').innerHTML = html;
+    })
+    .catch(err => {
+      console.warn("JD7 MENU ERROR:", err);
+      document.getElementById('jd7-menu-fallback').style.display = "block";
+    });
+
+  function jd7ToggleMenu() {
+    const links = document.getElementById('jd7-links');
+    if (links) links.classList.toggle('open');
+  }
+</script>
+
+<!-- HERO -->
+<h1 class="fade-in">JD7 Ritual Tech Ecosystem</h1>
+<div class="subtitle fade-in">Digital Infrastructure • Avatars • NFT • AI Bots</div>
+
+<!-- PORTAL GRID -->
+<div class="portal-grid fade-in">
+
+  <a class="portal-card" href="/avatars/">
+    <div class="portal-title">Avatars</div>
+    <div>10 JD7 Roles</div>
+  </a>
+
+  <a class="portal-card" href="/clips/">
+    <div class="portal-title">Clips</div>
+    <div>Reels & Cinematic</div>
+  </a>
+
+  <a class="portal-card" href="/nft/">
+    <div class="portal-title">NFT</div>
+    <div>Keys & Collections</div>
+  </a>
+
+  <a class="portal-card" href="/releases/">
+    <div class="portal-title">Releases</div>
+    <div>Music & Media</div>
+  </a>
+
+  <a class="portal-card" href="/justice/">
+    <div class="portal-title">Justice</div>
+    <div>Anti‑Fraud</div>
+  </a>
+
+  <a class="portal-card" href="/bots/">
+    <div class="portal-title">Bots</div>
+    <div>JD7BOT System</div>
+  </a>
+
+  <a class="portal-card" href="/world/">
+    <div class="portal-title">World</div>
+    <div>LUNA Map</div>
+  </a>
+
+  <a class="portal-card" href="/school/">
+    <div class="portal-title">School</div>
+    <div>XP & Levels</div>
+  </a>
+
+  <a class="portal-card" href="/questrun/">
+    <div class="portal-title">QuestRun</div>
+    <div>Daily & Weekly</div>
+  </a>
+
+</div>
+
+<!-- AVATARS SECTION -->
+<h2 class="fade-in" style="color:#7df9ff; margin-bottom:20px;">JD7 Avatars — Signature Roles</h2>
+
+<div class="avatar-grid fade-in">
+
+  <div class="avatar-card">
+    <div class="avatar-name guardian">The Guardian</div>
+    <div class="avatar-role">Protection • Cinematic + Neon</div>
+  </div>
+
+  <div class="avatar-card">
+    <div class="avatar-name navigator">The Navigator</div>
+    <div class="avatar-role">Strategy • Noir + Tech</div>
+  </div>
+
+  <div class="avatar-card">
+    <div class="avatar-name architect">The Architect</div>
+    <div class="avatar-role">Systems • Minimal + Tech</div>
+  </div>
+
+  <div class="avatar-card phantom">
+    <div class="avatar-name phantom">The Phantom</div>
+    <div class="avatar-role">Shadows • Dark Ritual + Noir</div>
+  </div>
+
+  <div class="avatar-card">
+    <div class="avatar-name oracle">The Oracle</div>
+    <div class="avatar-role">Insight • Neon Mystic</div>
+  </div>
+
+  <div class="avatar-card">
+    <div class="avatar-name runner">The Runner</div>
+    <div class="avatar-role">Motion • Urban + Motion</div>
+  </div>
+
+  <div class="avatar-card">
+    <div class="avatar-name sentinel">The Sentinel</div>
+    <div class="avatar-role">Defense • Heavy Cyber</div>
+  </div>
+
+  <div class="avatar-card">
+    <div class="avatar-name whisper">The Whisper</div>
+    <div class="avatar-role">Influence • Soft Cinematic</div>
+  </div>
+
+  <div class="avatar-card">
+    <div class="avatar-name pulse">The Pulse</div>
+    <div class="avatar-role">Rhythm • Neon Rhythm</div>
+  </div>
+
+  <div class="avatar-card">
+    <div class="avatar-name prime">The Prime</div>
+    <div class="avatar-role">Identity • JD7 Signature Mix</div>
+  </div>
+
+</div>
+
+<!-- MINI SECTIONS -->
+
+<div class="section fade-in">
+  <h2>Clips</h2>
+  <div class="mini-grid">
+    <div class="mini-card">
+      <h3>Transit Mix — Official Clip</h3>
+      <p>Main JD7 cinematic video.</p>
+    </div>
+    <div class="mini-card">
+      <h3>Avatar Motion Cut</h3>
+      <p>Short cinematic sequence.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section fade-in">
+  <h2>NFT</h2>
+  <div class="mini-grid">
+    <div class="mini-card">
+      <h3>JD7 NFT Keys</h3>
+      <p>Level I–III access keys.</p>
+    </div>
+    <div class="mini-card">
+      <h3>Avatar NFT Series</h3>
+      <p>10 avatars × multiple variations.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section fade-in">
+  <h2>Releases</h2>
+  <div class="mini-grid">
+    <div class="mini-card">
+      <h3>New Album — JD7</h3>
+      <p>Cinematic, cyber, ritual tracks.</p>
+    </div>
+    <div class="mini-card">
+      <h3>Singles & Remixes</h3>
+      <p>Spotify / Apple / YouTube.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section fade-in">
+  <h2>JD7 Justice
