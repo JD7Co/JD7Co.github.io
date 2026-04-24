@@ -1,23 +1,90 @@
-<div style="
-  width:100%;
-  padding:15px 20px;
-  background:#111;
-  border-bottom:1px solid #222;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:1000;
-">
-  <div style="color:#7df9ff;font-weight:bold;font-size:18px;">
-    JD7
-  </div>
+<style>
+  .jd7-menu {
+    width: 100%;
+    padding: 15px 20px;
+    background: #111;
+    border-bottom: 1px solid #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
 
-  <div style="display:flex;gap:20px;">
-    <a href="/world/" style="color:#7df9ff;text-decoration:none;font-size:14px;">WORLD</a>
-    <a href="/school/" style="color:#7df9ff;text-decoration:none;font-size:14px;">SCHOOL</a>
-    <a href="/nft/" style="color:#7df9ff;text-decoration:none;font-size:14px;">NFT</a>
-    <a href="/bots/" style="color:#7df9ff;text-decoration:none;font-size:14px;">BOTS</a>
+  .jd7-logo {
+    color: #7df9ff;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .jd7-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .jd7-links a {
+    color: #7df9ff;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+
+  .jd7-links a:hover {
+    opacity: 1;
+  }
+
+  /* MOBILE MODE */
+  @media (max-width: 600px) {
+    .jd7-links {
+      display: none;
+      flex-direction: column;
+      background: #111;
+      padding: 15px;
+      border-top: 1px solid #222;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .jd7-links.open {
+      display: flex;
+    }
+
+    .jd7-burger {
+      display: block;
+      font-size: 22px;
+      color: #7df9ff;
+      cursor: pointer;
+    }
+  }
+
+  @media (min-width: 601px) {
+    .jd7-burger {
+      display: none;
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<div class="jd7-menu">
+  <div class="jd7-logo">JD7</div>
+
+  <div class="jd7-burger" onclick="jd7ToggleMenu()">☰</div>
+
+  <div class="jd7-links" id="jd7-links">
+    <a href="/world/">WORLD</a>
+    <a href="/school/">SCHOOL</a>
+    <a href="/nft/">NFT</a>
+    <a href="/bots/">BOTS</a>
   </div>
 </div>
+
+<script>
+  function jd7ToggleMenu() {
+    const links = document.getElementById('jd7-links');
+    links.classList.toggle('open');
+  }
+</script>
