@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>JD7 WORLD</title>
+  <title>JD7 WORLD HUB</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- CORE STYLES -->
@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="/core/access.css">
 
   <style>
-    /* Базовая структура страницы */
     body {
       background: var(--bg-color);
       color: var(--text-color);
@@ -49,6 +48,7 @@
       align-items: center;
       justify-content: center;
       gap: 18px;
+      flex-wrap: wrap;
     }
 
     .nav-link {
@@ -106,24 +106,46 @@
       margin-bottom: 24px;
     }
 
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 32px;
+    .modules-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 18px;
     }
 
-    .tag {
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 999px;
+    .module-card {
+      padding: 16px;
+      border-radius: 16px;
       border: 1px solid rgba(255,255,255,0.12);
-      opacity: 0.85;
+      background: rgba(255,255,255,0.03);
+      transition: 0.25s ease;
+      text-decoration: none;
+      color: inherit;
     }
 
-    body.theme-light .tag,
-    body.theme-ebook .tag {
-      border-color: rgba(0,0,0,0.12);
+    .module-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-color);
+    }
+
+    .module-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .module-tag {
+      font-size: 11px;
+      opacity: 0.7;
+      margin-bottom: 8px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .module-desc {
+      font-size: 13px;
+      opacity: 0.8;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -140,5 +162,151 @@
           0.0 0.2 0.8 0 0
           0   0   0   1 0" />
       </filter>
-
       <filter id="filter-red">
+        <feColorMatrix type="matrix" values="
+          0.9 0.1 0.0 0 0
+          0.2 0.8 0.1 0 0
+          0.1 0.1 0.8 0 0
+          0   0   0   1 0" />
+      </filter>
+      <filter id="filter-yellow">
+        <feColorMatrix type="matrix" values="
+          1.0 0.1 0.0 0 0
+          0.1 1.0 0.0 0 0
+          0.0 0.1 0.8 0 0
+          0   0   0   1 0" />
+      </filter>
+      <filter id="filter-blue">
+        <feColorMatrix type="matrix" values="
+          0.7 0.1 0.3 0 0
+          0.1 0.7 0.3 0 0
+          0.2 0.2 1.0 0 0
+          0   0   0   1 0" />
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="parallax-bg"></div>
+
+  <!-- NAVIGATION -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <a href="/" class="nav-link">WORLD</a>
+      <a href="/school/" class="nav-link">SCHOOL</a>
+
+      <div class="nav-crystal-wrapper">
+        <button id="jd7-crystal" class="crystal-button">
+          <div class="crystal-orbit">
+            <div class="crystal-shell">
+              <div class="crystal-plasma"></div>
+              <div class="crystal-core"></div>
+              <div class="crystal-glow"></div>
+            </div>
+            <div class="crystal-label">JD7 THEME</div>
+          </div>
+        </button>
+      </div>
+
+      <a href="/questrun/" class="nav-link">QUESTRUN</a>
+      <a href="/nft/" class="nav-link">NFT</a>
+      <a href="/bots/" class="nav-link">BOTS</a>
+      <a href="/justice/" class="nav-link">JUSTICE</a>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="content">
+    <section class="hero">
+      <div class="hero-kicker">JD7 WORLD HUB</div>
+      <h1 class="hero-title">Единый вход в экосистему JD7.</h1>
+      <p class="hero-subtitle">
+        WORLD, SCHOOL, QUESTRUN, NFT, BOTS и JUSTICE работают как один портал.  
+        Темы, кристалл, доступность и ритуалы — общее ядро для всех модулей.
+      </p>
+    </section>
+
+    <section class="modules-grid">
+      <a href="/school/" class="module-card">
+        <div class="module-tag">SCHOOL</div>
+        <div class="module-title">JD7 SCHOOL LUNA</div>
+        <div class="module-desc">Учебный центр: объяснение мира, интерфейса, ритуалов и прогресса.</div>
+      </a>
+
+      <a href="/questrun/" class="module-card">
+        <div class="module-tag">QUESTRUN</div>
+        <div class="module-title">JD7 QUESTRUN</div>
+        <div class="module-desc">Миссии, XP, уровни, динамическая сложность и ежедневные циклы.</div>
+      </a>
+
+      <a href="/nft/" class="module-card">
+        <div class="module-tag">NFT</div>
+        <div class="module-title">JD7 NFT CENTER</div>
+        <div class="module-desc">Коллекции, аватары, артефакты и ключи, загружаемые из JSON.</div>
+      </a>
+
+      <a href="/bots/" class="module-card">
+        <div class="module-tag">BOTS</div>
+        <div class="module-title">JD7 BOTS CENTER</div>
+        <div class="module-desc">Панель управления аватарами и ролями JD7.</div>
+      </a>
+
+      <a href="/justice/" class="module-card">
+        <div class="module-tag">JUSTICE</div>
+        <div class="module-title">JD7 JUSTICE</div>
+        <div class="module-desc">Антифрод‑центр, кейсы, предупреждения и правила безопасности.</div>
+      </a>
+    </section>
+  </main>
+
+  <!-- ACCESS PANEL -->
+  <div id="access-backdrop" class="access-panel-backdrop"></div>
+
+  <div id="access-panel" class="access-panel">
+    <div class="access-panel-handle"></div>
+
+    <div class="access-panel-header">
+      <div>
+        <div class="access-panel-title">JD7 ACCESS PANEL</div>
+        <div class="access-panel-sub">Цветовые режимы для разных типов зрения</div>
+      </div>
+      <button id="access-close" class="access-panel-close">×</button>
+    </div>
+
+    <div class="access-grid">
+      <button class="access-chip" data-filter="green">
+        <div class="access-dot green"></div>
+        <div class="access-chip-label">Green</div>
+      </button>
+      <button class="access-chip" data-filter="red">
+        <div class="access-dot red"></div>
+        <div class="access-chip-label">Red</div>
+      </button>
+      <button class="access-chip" data-filter="yellow">
+        <div class="access-dot yellow"></div>
+        <div class="access-chip-label">Yellow</div>
+      </button>
+      <button class="access-chip" data-filter="blue">
+        <div class="access-dot blue"></div>
+        <div class="access-chip-label">Blue</div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ACCESS BUTTON -->
+  <button id="access-button" class="access-button">
+    <span class="access-icon">🎛️</span>
+  </button>
+
+  <!-- CORE SCRIPTS -->
+  <script type="module">
+    import { initCrystal } from "/core/crystal.js";
+    import { initAccessPanel } from "/core/access.js";
+    import { initEffects } from "/core/effects.js";
+
+    initCrystal();
+    initAccessPanel();
+    initEffects();
+  </script>
+
+</body>
+</html>
