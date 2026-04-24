@@ -1,0 +1,14 @@
+{
+  "items": [
+    {
+      "name": "JD7 Avatar · Neon Core",
+      "desc": "Основной аватар JD7 в неоновой стилистике.",
+      "image": "https://jd7co.github.io/assets/avatars/avatar1.png"
+    },
+    {
+      "name": "JD7 Avatar · Plasma",
+      "desc": "Плазменная версия аватара.",
+      "image": "https://jd7co.github.io/assets/avatars/avatar2.png"
+    }
+  ]
+}
