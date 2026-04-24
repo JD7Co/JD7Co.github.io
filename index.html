@@ -22,8 +22,33 @@
       font-family: Arial, sans-serif;
       padding: 20px;
       margin: 0;
+      overflow-x: hidden;
     }
 
+    /* PARALLAX BACKGROUND LINES */
+    .bg-lines {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(125,249,255,0.05) 0px,
+        rgba(125,249,255,0.05) 1px,
+        transparent 1px,
+        transparent 80px
+      );
+      animation: moveLines 25s linear infinite;
+      z-index: -2;
+    }
+
+    @keyframes moveLines {
+      from { transform: translateX(0); }
+      to { transform: translateX(-400px); }
+    }
+
+    /* HERO */
     h1 {
       text-align: center;
       color: #7df9ff;
@@ -143,40 +168,4 @@
     .section h2 {
       color: #7df9ff;
       margin-bottom: 10px;
-      position: relative;
-      padding-bottom: 6px;
-    }
-
-    .section h2::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, #7df9ff, transparent);
-    }
-
-    .mini-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-    }
-
-    .mini-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid #333;
-      border-radius: 10px;
-      padding: 16px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .mini-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 0 18px rgba(125,249,255,0.25);
-      border-color: #7df9ff;
-    }
-
-    footer {
-      text-align: center;
-      opacity: 0
+      position
