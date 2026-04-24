@@ -48,3 +48,39 @@ function jd7ToggleMenu() {
     links.classList.toggle('open');
   }
 }
+// JD7 XP SYSTEM — глобальное состояние
+const JD7State = {
+  xp: 120,
+  level: 1,
+  nextLevelXP: 300
+};
+
+// Формула получения XP
+function jd7AddXP(amount) {
+  JD7State.xp += amount;
+
+  // Проверка уровня
+  if (JD7State.xp >= JD7State.nextLevelXP) {
+    JD7State.level++;
+    JD7State.xp = JD7State.xp - JD7State.nextLevelXP;
+    JD7State.nextLevelXP = Math.floor(JD7State.nextLevelXP * 1.5);
+  }
+
+  // Обновление UI если есть
+  jd7UpdateXPUI();
+}
+
+// Обновление UI
+function jd7UpdateXPUI() {
+  const bar = document.getElementById('xp-bar');
+  const text = document.getElementById('xp-text');
+  const level = document.getElementById('xp-level');
+
+  if (!bar || !text || !level) return;
+
+  const percent = Math.min(100, (JD7State.xp / JD7State.nextLevelXP) * 100);
+
+  bar.style.width = percent + '%';
+  text.innerText = `XP: ${JD7State.xp} / ${JD7State.nextLevelXP}`;
+  level.innerText = `Level ${JD7State.level}`;
+}
