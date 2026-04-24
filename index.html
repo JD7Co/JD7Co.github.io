@@ -143,6 +143,58 @@
       margin-top: 40px;
       padding-bottom: 20px;
     }
+/* 3D hover */
+.portal-card, .avatar-card, .mini-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.portal-card:hover,
+.avatar-card:hover,
+.mini-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 0 18px rgba(125,249,255,0.25);
+}
+
+/* Neon underline for section titles */
+.section h2, h2 {
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.section h2::after, h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #7df9ff, transparent);
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* HERO pulse */
+h1 {
+  animation: heroPulse 4s ease-in-out infinite;
+}
+
+@keyframes heroPulse {
+  0% { text-shadow: 0 0 4px #7df9ff; }
+  50% { text-shadow: 0 0 12px #7df9ff; }
+  100% { text-shadow: 0 0 4px #7df9ff; }
+}
   </style>
 </head>
 
