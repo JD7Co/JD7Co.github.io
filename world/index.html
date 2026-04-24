@@ -30,6 +30,20 @@
       color: #fff;
     }
 
+/* Лёгкая пульсация для всей карты */
+.map-container {
+  animation: jd7Pulse 6s ease-in-out infinite;
+}
+
+@keyframes jd7Pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.01); }
+  100% { transform: scale(1); }
+}
+</style>
+</head>
+
+
     .orbit-title {
       font-size: 20px;
       color: #ffcc66;
