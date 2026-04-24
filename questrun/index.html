@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JD7 QUESTRUN</title>
+  <script src="/core/jd7-core.js"></script>
+
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 30px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #7df9ff;
+      margin-bottom: 20px;
+    }
+
+    .quest {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #333;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .quest-title {
+      font-size: 20px;
+      color: #ffcc66;
+      margin-bottom: 10px;
+    }
+
+    .quest-desc {
+      opacity: 0.8;
+      margin-bottom: 10px;
+    }
+
+    .quest-btn {
+      background: #7df9ff;
+      color: #000;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .quest-btn.completed {
+      background: #444;
+      color: #888;
+      cursor: default;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="jd7-menu"></div>
+<script>
+  fetch('/core/jd7-menu.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('jd7-menu').innerHTML = html);
+</script>
+
+<h1>JD7 QUESTRUN</h1>
+
+<div id="quests"></div>
+
+<script>
+  // Список миссий
+  const JD7Quests = [
+    {
+      id: "q1",
+      title: "Identity Awakening",
+      desc: "Открой Level 1 в SCHOOL и изучи структуру JD7.",
+      xp: 30,
+      done: false
+    },
+    {
+      id: "q2",
+      title: "Motion Starter",
+      desc: "Создай 1 рилс или короткое видео.",
+      xp: 40,
+      done: false
+    },
+    {
+      id: "q3",
+      title: "NFT Initiation",
+      desc: "Создай своё первое NFT metadata.",
+      xp: 50,
+      done: false
+    }
+  ];
+
+  function renderQuests() {
+    const box = document.getElementById('quests');
+    box.innerHTML = "";
+
+    JD7Quests.forEach(q => {
+      box.innerHTML += `
+        <div class="quest">
+          <div class="quest-title">${q.title}</div>
+          <div class="quest-desc">${q.desc}</div>
+          <div class="quest-btn ${q.done ? 'completed' : ''}"
+               onclick="${q.done ? '' : `completeQuest('${q.id}')`}">
+            ${q.done ? 'Completed' : `Claim +${q.xp} XP`}
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  function completeQuest(id) {
+    const quest = JD7Quests.find(q => q.id === id);
+    if (!quest || quest.done) return;
+
+    quest.done = true;
+    jd7AddXP(quest.xp);
+    renderQuests();
+  }
+
+  renderQuests();
+  jd7UpdateXPUI();
+</script>
+
+</body>
+</html>
