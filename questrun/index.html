@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JD7 QUESTRUN</title>
   <script src="/core/jd7-core.js"></script>
 
@@ -70,10 +71,15 @@
 <div id="quests"></div>
 
 <script>
-  // Список миссий
-  const JD7Quests = [
+/* ============================
+      QUEST LIST
+============================ */
+
+const JD7Quests = [
+
+  /* DAILY */
   {
-    id: "q1",
+    id: "d1",
     type: "daily",
     title: "Daily — Identity Ping",
     desc: "Открой SCHOOL и проверь свой уровень.",
@@ -81,55 +87,76 @@
     done: false
   },
   {
-    id: "q2",
+    id: "d2",
     type: "daily",
     title: "Daily — Motion Touch",
     desc: "Сделай 1 короткое видео или рилс.",
     xp: 20,
     done: false
   },
+
+  /* CORE */
   {
-    id: "q3",
-    type: "daily",
-    title: "core",
+    id: "c1",
+    type: "core",
     title: "NFT Initiation",
     desc: "Создай своё первое NFT metadata.",
     xp: 50,
     done: false
+  },
+
+  /* WEEKLY */
+  {
+    id: "w1",
+    type: "weekly",
+    title: "Weekly — Motion Marathon",
+    desc: "Создай 3 клипа или рилса за неделю.",
+    xp: 120,
+    progress: 0,
+    goal: 3,
+    done: false
+  },
+  {
+    id: "w2",
+    type: "weekly",
+    title: "Weekly — NFT Builder",
+    desc: "Создай 1 NFT metadata за неделю.",
+    xp: 150,
+    progress: 0,
+    goal: 1,
+    done: false
   }
-{
-  id: "w1",
-  type: "weekly",
-  title: "Weekly — Motion Marathon",
-  desc: "Создай 3 клипа или рилса за неделю.",
-  xp: 120,
-  progress: 0,
-  goal: 3,
-  done: false
-},
-{
-  id: "w2",
-  type: "weekly",
-  title: "Weekly — NFT Builder",
-  desc: "Создай 1 NFT metadata за неделю.",
-  xp: 150,
-  progress: 0,
-  goal: 1,
-  done: false
-} 
 ];
-const JD7QuestStateKey = 'JD7QuestState';
+
+const JD7QuestStateKey = "JD7QuestState";
+
+/* ============================
+      WEEK CHECK
+============================ */
+
+function jd7IsSameWeek(date1, date2) {
+  const d1 = new Date(date1);
+  const d2 = new Date(date2);
+
+  const week1 = Math.floor((d1 - new Date(d1.getFullYear(),0,1)) / 604800000);
+  const week2 = Math.floor((d2 - new Date(d2.getFullYear(),0,1)) / 604800000);
+
+  return d1.getFullYear() === d2.getFullYear() && week1 === week2;
+}
+
+/* ============================
+      LOAD STATE
+============================ */
 
 function jd7LoadQuestState() {
   const saved = localStorage.getItem(JD7QuestStateKey);
   if (!saved) return;
-if (saved) {
+
   const data = JSON.parse(saved);
   const today = new Date().toISOString().slice(0, 10);
 
   JD7Quests.forEach(q => {
     const savedQuest = data.quests[q.id];
-
     if (!savedQuest) return;
 
     if (q.type === "daily") {
@@ -142,25 +169,26 @@ if (saved) {
         q.progress = savedQuest.progress;
       }
     }
+
+    if (q.type === "core") {
+      q.done = savedQuest.done;
+    }
   });
 }
-  const data = JSON.parse(saved);
-  const today = new Date().toISOString().slice(0, 10);
 
-  // если день сменился — daily обнуляем
-  if (data.date !== today) return;
-
-  JD7Quests.forEach(q => {
-    const savedQuest = data.quests[q.id];
-    if (savedQuest) q.done = savedQuest.done;
-  });
-}
+/* ============================
+      SAVE STATE
+============================ */
 
 function jd7SaveQuestState() {
   const today = new Date().toISOString().slice(0, 10);
   const map = {};
+
   JD7Quests.forEach(q => {
-    map[q.id] = { done: q.done };
+    map[q.id] = {
+      done: q.done,
+      progress: q.progress ?? 0
+    };
   });
 
   localStorage.setItem(JD7QuestStateKey, JSON.stringify({
@@ -168,63 +196,73 @@ function jd7SaveQuestState() {
     quests: map
   }));
 }
-  function renderQuests() {
-    const box = document.getElementById('quests');
-    box.innerHTML = "";
 
-    JD7Quests.forEach(q => {
-      box.innerHTML += `
-        <div class="quest">
-          <div class="quest-title">${q.title}</div>
-          <div class="quest-desc">${q.desc}</div>
-          <div class="quest-btn ${q.done ? 'completed' : ''}"
-               onclick="${q.done ? '' : `completeQuest('${q.id}')`}">
-            ${q.done ? 'Completed' : `Claim +${q.xp} XP`}
-let progressHTML = "";
+/* ============================
+      RENDER
+============================ */
 
-if (q.type === "weekly") {
-  progressHTML = `
-    <div style="opacity:0.7;margin-bottom:6px;">
-      Progress: ${q.progress} / ${q.goal}
-    </div>
-  `;
-}
-          </div>
+function renderQuests() {
+  const box = document.getElementById("quests");
+  box.innerHTML = "";
+
+  JD7Quests.forEach(q => {
+
+    let progressHTML = "";
+    if (q.type === "weekly") {
+      progressHTML = `
+        <div style="opacity:0.7;margin-bottom:6px;">
+          Progress: ${q.progress} / ${q.goal}
         </div>
       `;
-    });
-  }
-
-  function completeQuest(id) {
-  const quest = JD7Quests.find(q => q.id === id);
-if (quest.type === "weekly") {
-  if (quest.progress < quest.goal) {
-    quest.progress++;
-
-    if (quest.progress >= quest.goal) {
-      quest.done = true;
-      jd7AddXP(quest.xp);
     }
-  }
-} else {
-  quest.done = true;
-  jd7AddXP(quest.xp);
+
+    box.innerHTML += `
+      <div class="quest">
+        <div class="quest-title">${q.title}</div>
+        <div class="quest-desc">${q.desc}</div>
+        ${progressHTML}
+        <div class="quest-btn ${q.done ? 'completed' : ''}"
+             onclick="${q.done ? '' : `completeQuest('${q.id}')`}">
+          ${q.done ? 'Completed' : `Claim +${q.xp} XP`}
+        </div>
+      </div>
+    `;
+  });
 }
 
-jd7SaveQuestState();
-renderQuests();
+/* ============================
+      COMPLETE QUEST
+============================ */
+
+function completeQuest(id) {
+  const quest = JD7Quests.find(q => q.id === id);
   if (!quest || quest.done) return;
 
-  quest.done = true;
-  jd7AddXP(quest.xp);
+  if (quest.type === "weekly") {
+    if (quest.progress < quest.goal) {
+      quest.progress++;
+      if (quest.progress >= quest.goal) {
+        quest.done = true;
+        jd7AddXP(quest.xp);
+      }
+    }
+  } else {
+    quest.done = true;
+    jd7AddXP(quest.xp);
+  }
+
   jd7SaveQuestState();
   renderQuests();
 }
-  jd7LoadQuestState();
-  renderQuests();
-  jd7UpdateXPUI();
-  renderQuests();
-  jd7UpdateXPUI();
+
+/* ============================
+      INIT
+============================ */
+
+jd7LoadQuestState();
+renderQuests();
+jd7UpdateXPUI();
+
 </script>
 
 </body>
