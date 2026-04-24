@@ -1,3 +1,26 @@
+// === JD7 GLOBAL STATE ===
+// Хранит XP, уровень, прогресс, настройки
+// В будущем будет заменено на localStorage / cloud sync
+let JD7State = {
+  xp: 120,
+  level: 1,
+  nextLevelXP: 300
+};
+
+// Сохранение состояния
+function jd7SaveState() {
+  localStorage.setItem('JD7State', JSON.stringify(JD7State));
+}
+
+// Загрузка состояния
+function jd7LoadState() {
+  const saved = localStorage.getItem('JD7State');
+  if (saved) {
+    JD7State = JSON.parse(saved);
+  }
+}
+jd7LoadState();
+
 // JD7 CORE — базовые функции
 
 // Тоггл блоков (используется в SCHOOL)
