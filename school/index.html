@@ -90,6 +90,14 @@
 
   document.getElementById('xp-bar').style.width = percent + '%';
   document.getElementById('xp-text').innerText = 'Current XP: ' + currentXP + ' / ' + maxXP;
+<script>
+  function toggleTasks(id) {
+    jd7Toggle(id);
+  }
+
+  const currentXP = 120;
+  const maxXP = 300;
+  jd7SetXP('xp-bar', 'xp-text', currentXP, maxXP);
 </script>
 <body>
 
