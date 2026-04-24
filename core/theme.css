@@ -1,0 +1,43 @@
+/* JD7 THEMES */
+
+:root {
+  --bg-color: #05060a;
+  --text-color: #f5f5f5;
+  --accent-color: #7df9ff;
+  --panel-bg: rgba(10, 12, 18, 0.96);
+  --panel-border: rgba(255, 255, 255, 0.08);
+}
+
+/* DARK */
+body.theme-dark {
+  --bg-color: #05060a;
+  --text-color: #f5f5f5;
+  --accent-color: #7df9ff;
+}
+
+/* LIGHT */
+body.theme-light {
+  --bg-color: #f5f5f7;
+  --text-color: #111218;
+  --accent-color: #ffcc66;
+}
+
+/* E-BOOK */
+body.theme-ebook {
+  --bg-color: #f3e9d7;
+  --text-color: #2b2418;
+  --accent-color: #ffbb55;
+}
+
+/* PLASMA */
+body.theme-plasma {
+  --bg-color: radial-gradient(circle at top, #1a1030 0%, #05060a 55%, #020308 100%);
+  --text-color: #f5f5ff;
+  --accent-color: #9b7dff;
+}
+
+/* ACCESSIBILITY FILTERS */
+body.filter-green { filter: url('#filter-green'); }
+body.filter-red   { filter: url('#filter-red'); }
+body.filter-yellow{ filter: url('#filter-yellow'); }
+body.filter-blue  { filter: url('#filter-blue'); }
