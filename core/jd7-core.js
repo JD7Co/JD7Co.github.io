@@ -85,9 +85,13 @@ function jd7AddXP(amount) {
   // Проверка уровня
   if (JD7State.xp >= JD7State.nextLevelXP) {
     JD7State.level++;
-    JD7State.xp = JD7State.xp - JD7State.nextLevelXP;
+    JD7State.xp -= JD7State.nextLevelXP;
     JD7State.nextLevelXP = Math.floor(JD7State.nextLevelXP * 1.5);
   }
+
+  jd7SaveState();
+  jd7UpdateXPUI();
+}
 
   // Обновление UI если есть
   jd7UpdateXPUI();
