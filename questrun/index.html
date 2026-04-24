@@ -188,6 +188,22 @@ function jd7SaveQuestState() {
 
   function completeQuest(id) {
   const quest = JD7Quests.find(q => q.id === id);
+if (quest.type === "weekly") {
+  if (quest.progress < quest.goal) {
+    quest.progress++;
+
+    if (quest.progress >= quest.goal) {
+      quest.done = true;
+      jd7AddXP(quest.xp);
+    }
+  }
+} else {
+  quest.done = true;
+  jd7AddXP(quest.xp);
+}
+
+jd7SaveQuestState();
+renderQuests();
   if (!quest || quest.done) return;
 
   quest.done = true;
