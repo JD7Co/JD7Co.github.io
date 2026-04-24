@@ -1,0 +1,31 @@
+/* JD7 ACCESS PANEL */
+
+.access-button {
+  position: fixed;
+  right: 16px;
+  bottom: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.access-panel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(100%);
+  transition: 0.6s ease;
+  border-radius: 18px 18px 0 0;
+}
+
+.access-panel.active {
+  transform: translateY(0%);
+}
+
+.access-chip {
+  border-radius: 12px;
+  padding: 8px;
+  cursor: pointer;
+}
