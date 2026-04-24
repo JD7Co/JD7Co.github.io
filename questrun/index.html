@@ -72,28 +72,32 @@
 <script>
   // Список миссий
   const JD7Quests = [
-    {
-      id: "q1",
-      title: "Identity Awakening",
-      desc: "Открой Level 1 в SCHOOL и изучи структуру JD7.",
-      xp: 30,
-      done: false
-    },
-    {
-      id: "q2",
-      title: "Motion Starter",
-      desc: "Создай 1 рилс или короткое видео.",
-      xp: 40,
-      done: false
-    },
-    {
-      id: "q3",
-      title: "NFT Initiation",
-      desc: "Создай своё первое NFT metadata.",
-      xp: 50,
-      done: false
-    }
-  ];
+  {
+    id: "q1",
+    type: "daily",
+    title: "Daily — Identity Ping",
+    desc: "Открой SCHOOL и проверь свой уровень.",
+    xp: 15,
+    done: false
+  },
+  {
+    id: "q2",
+    type: "daily",
+    title: "Daily — Motion Touch",
+    desc: "Сделай 1 короткое видео или рилс.",
+    xp: 20,
+    done: false
+  },
+  {
+    id: "q3",
+    type: "daily",
+    title: "core",
+    title: "NFT Initiation",
+    desc: "Создай своё первое NFT metadata.",
+    xp: 50,
+    done: false
+  }
+];
 
   function renderQuests() {
     const box = document.getElementById('quests');
