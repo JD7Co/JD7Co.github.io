@@ -79,7 +79,12 @@
 </head>
 
 <body>
-
+<div id="jd7-menu"></div>
+<script>
+  fetch('/core/jd7-menu.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('jd7-menu').innerHTML = html);
+</script>
 <h1>JD7 SCHOOL LUNA</h1>
 <p style="text-align:center; opacity:0.8;">Обучение, уровни, задания, прогресс.</p>
 
