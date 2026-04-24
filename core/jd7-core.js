@@ -1,5 +1,4 @@
 // === JD7 GLOBAL STATE ===
-// Хранит XP, уровень, прогресс, настройки
 let JD7State = {
   xp: 120,
   level: 1,
@@ -14,19 +13,14 @@ function jd7SaveState() {
 // Загрузка состояния
 function jd7LoadState() {
   const saved = localStorage.getItem('JD7State');
-  if (saved) {
-    JD7State = JSON.parse(saved);
-  }
+  if (saved) JD7State = JSON.parse(saved);
 }
 jd7LoadState();
 
-// === JD7 XP SYSTEM ===
-
-// Добавление XP
+// === XP SYSTEM ===
 function jd7AddXP(amount) {
   JD7State.xp += amount;
 
-  // Проверка уровня
   if (JD7State.xp >= JD7State.nextLevelXP) {
     JD7State.level++;
     JD7State.xp -= JD7State.nextLevelXP;
@@ -37,7 +31,6 @@ function jd7AddXP(amount) {
   jd7UpdateXPUI();
 }
 
-// Обновление UI
 function jd7UpdateXPUI() {
   const bar = document.getElementById('xp-bar');
   const text = document.getElementById('xp-text');
@@ -55,9 +48,7 @@ function jd7UpdateXPUI() {
 // === MENU ===
 function jd7ToggleMenu() {
   const links = document.getElementById('jd7-links');
-  if (links) {
-    links.classList.toggle('open');
-  }
+  if (links) links.classList.toggle('open');
 }
 
 // === TOGGLE BLOCKS ===
