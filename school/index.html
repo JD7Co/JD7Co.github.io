@@ -5,16 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JD7 SCHOOL LUNA — Levels</title>
 
-<p style="text-align:center; opacity:0.8;">Обучение, уровни, задания, прогресс.</p>
-
-<div style="max-width:400px;margin:20px auto;">
-  <div style="height:10px;background:#222;border-radius:10px;overflow:hidden;">
-    <div id="xp-bar" style="height:10px;width:40%;background:linear-gradient(90deg,#7df9ff,#ffcc66);"></div>
-  </div>
-  <div style="margin-top:8px;font-size:14px;opacity:0.8;text-align:center;">
-    <span id="xp-text">Current XP: 120 / 300</span>
-  </div>
-</div>
   <style>
     body {
       background: #0a0a0a;
@@ -75,44 +65,8 @@
       block.style.display = block.style.display === "block" ? "none" : "block";
     }
   </script>
-<script src="/core/jd7-core.js"></script>
 </head>
-<script>
-<script>
-  function toggleTasks(id) {
-    const block = document.getElementById(id);
-    block.style.display = block.style.display === "block" ? "none" : "block";
-  }
 
-  // Простейшая модель прогресса (можно будет связать с реальными данными)
-  const currentXP = 120;
-  const maxXP = 300;
-  const percent = Math.min(100, (currentXP / maxXP) * 100);
-
-  document.getElementById('xp-bar').style.width = percent + '%';
-  document.getElementById('xp-text').innerText = 'Current XP: ' + currentXP + ' / ' + maxXP;
-</script>
-  function toggleTasks(id) {
-    const block = document.getElementById(id);
-    block.style.display = block.style.display === "block" ? "none" : "block";
-  }
-
-  // Простейшая модель прогресса (можно будет связать с реальными данными)
-  const currentXP = 120;
-  const maxXP = 300;
-  const percent = Math.min(100, (currentXP / maxXP) * 100);
-
-  document.getElementById('xp-bar').style.width = percent + '%';
-  document.getElementById('xp-text').innerText = 'Current XP: ' + currentXP + ' / ' + maxXP;
-<script>
-  function toggleTasks(id) {
-    jd7Toggle(id);
-  }
-
-  const currentXP = 120;
-  const maxXP = 300;
-  jd7SetXP('xp-bar', 'xp-text', currentXP, maxXP);
-</script>
 <body>
 
 <h1>JD7 SCHOOL LUNA</h1>
@@ -172,19 +126,6 @@
     <div class="task">Task 2: Создать 1 сценарий <span class="xp">+30 XP</span></div>
   </div>
 </div>
-<script>
-  function toggleTasks(id) {
-    const block = document.getElementById(id);
-    block.style.display = block.style.display === "block" ? "none" : "block";
-  }
 
-  // Простейшая модель прогресса (можно будет связать с реальными данными)
-  const currentXP = 120;
-  const maxXP = 300;
-  const percent = Math.min(100, (currentXP / maxXP) * 100);
-
-  document.getElementById('xp-bar').style.width = percent + '%';
-  document.getElementById('xp-text').innerText = 'Current XP: ' + currentXP + ' / ' + maxXP;
-</script>
 </body>
 </html>
