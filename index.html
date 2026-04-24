@@ -17,31 +17,33 @@
 
   <style>
     body {
-      background: #0a0a0a;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      margin: 0;
-      overflow-x: hidden;
-    }
+  background: #0a0a0a;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  margin: 0;
+  overflow-x: hidden;
+  position: relative; /* FIX */
+}
 
-    /* PARALLAX BACKGROUND LINES */
-    .bg-lines {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      background: repeating-linear-gradient(
-        90deg,
-        rgba(125,249,255,0.05) 0px,
-        rgba(125,249,255,0.05) 1px,
-        transparent 1px,
-        transparent 80px
-      );
-      animation: moveLines 25s linear infinite;
-      z-index: -2;
-    }
+/* PARALLAX BACKGROUND LINES — FIXED VERSION */
+.bg-lines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 150%;
+  pointer-events: none; /* FIX */
+  z-index: -1; /* FIX */
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(125,249,255,0.05) 0px,
+    rgba(125,249,255,0.05) 1px,
+    transparent 1px,
+    transparent 80px
+  );
+  animation: moveLines 25s linear infinite;
+}
 
     @keyframes moveLines {
       from { transform: translateX(0); }
