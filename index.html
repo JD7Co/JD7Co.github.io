@@ -30,12 +30,33 @@
       margin-top: 20px;
       margin-bottom: 10px;
       font-size: 32px;
+      animation: heroPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes heroPulse {
+      0% { text-shadow: 0 0 4px #7df9ff; }
+      50% { text-shadow: 0 0 12px #7df9ff; }
+      100% { text-shadow: 0 0 4px #7df9ff; }
     }
 
     .subtitle {
       text-align: center;
       opacity: 0.7;
       margin-bottom: 40px;
+    }
+
+    /* Fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* GRID PORTAL */
@@ -54,11 +75,12 @@
       text-align: center;
       text-decoration: none;
       color: #fff;
-      transition: 0.2s;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .portal-card:hover {
-      background: rgba(125,249,255,0.1);
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 0 18px rgba(125,249,255,0.25);
       border-color: #7df9ff;
     }
 
@@ -81,25 +103,24 @@
       border-radius: 12px;
       border: 1px solid #333;
       background: rgba(255,255,255,0.05);
-      transition: 0.25s;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .avatar-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 0 18px rgba(125,249,255,0.25);
       border-color: #7df9ff;
-      background: rgba(125,249,255,0.08);
-    }
-
-    .avatar-role {
-      font-size: 14px;
-      opacity: 0.8;
-      margin-bottom: 6px;
     }
 
     .avatar-name {
       font-size: 20px;
       font-weight: bold;
       margin-bottom: 8px;
+    }
+
+    .avatar-role {
+      font-size: 14px;
+      opacity: 0.8;
     }
 
     /* Neon role colors */
@@ -122,6 +143,18 @@
     .section h2 {
       color: #7df9ff;
       margin-bottom: 10px;
+      position: relative;
+      padding-bottom: 6px;
+    }
+
+    .section h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, #7df9ff, transparent);
     }
 
     .mini-grid {
@@ -135,265 +168,15 @@
       border: 1px solid #333;
       border-radius: 10px;
       padding: 16px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .mini-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 0 18px rgba(125,249,255,0.25);
+      border-color: #7df9ff;
     }
 
     footer {
       text-align: center;
-      opacity: 0.5;
-      margin-top: 40px;
-      padding-bottom: 20px;
-    }
-/* 3D hover */
-.portal-card, .avatar-card, .mini-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.portal-card:hover,
-.avatar-card:hover,
-.mini-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 0 18px rgba(125,249,255,0.25);
-}
-
-/* Neon underline for section titles */
-.section h2, h2 {
-  position: relative;
-  padding-bottom: 6px;
-}
-
-.section h2::after, h2::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 60px;
-  height: 2px;
-  background: linear-gradient(90deg, #7df9ff, transparent);
-}
-
-/* Fade-in animation */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* HERO pulse */
-h1 {
-  animation: heroPulse 4s ease-in-out infinite;
-}
-
-@keyframes heroPulse {
-  0% { text-shadow: 0 0 4px #7df9ff; }
-  50% { text-shadow: 0 0 12px #7df9ff; }
-  100% { text-shadow: 0 0 4px #7df9ff; }
-}
-  </style>
-</head>
-
-<body>
-
-<!-- MENU -->
-<div id="jd7-menu"></div>
-<script>
-  fetch('/core/jd7-menu.html')
-    .then(r => r.text())
-    .then(html => document.getElementById('jd7-menu').innerHTML = html);
-</script>
-
-<!-- HERO -->
-<h1>JD7 Ritual Tech Ecosystem</h1>
-<div class="subtitle">Digital Infrastructure • Avatars • NFT • AI Bots</div>
-
-<!-- PORTAL GRID -->
-<div class="portal-grid fade-in">
-
-  <a class="portal-card" href="/avatars/">
-    <div class="portal-title">Avatars</div>
-    <div>10 JD7 Roles</div>
-  </a>
-
-  <a class="portal-card" href="/clips/">
-    <div class="portal-title">Clips</div>
-    <div>Reels & Cinematic</div>
-  </a>
-
-  <a class="portal-card" href="/nft/">
-    <div class="portal-title">NFT</div>
-    <div>Keys & Collections</div>
-  </a>
-
-  <a class="portal-card" href="/releases/">
-    <div class="portal-title">Releases</div>
-    <div>Music & Media</div>
-  </a>
-
-  <a class="portal-card" href="/justice/">
-    <div class="portal-title">Justice</div>
-    <div>Anti‑Fraud</div>
-  </a>
-
-  <a class="portal-card" href="/bots/">
-    <div class="portal-title">Bots</div>
-    <div>JD7BOT System</div>
-  </a>
-
-  <a class="portal-card" href="/world/">
-    <div class="portal-title">World</div>
-    <div>LUNA Map</div>
-  </a>
-
-  <a class="portal-card" href="/school/">
-    <div class="portal-title">School</div>
-    <div>XP & Levels</div>
-  </a>
-
-  <a class="portal-card" href="/questrun/">
-    <div class="portal-title">QuestRun</div>
-    <div>Daily & Weekly</div>
-  </a>
-
-</div>
-
-<!-- AVATARS SECTION -->
-<h2 style="color:#7df9ff; margin-bottom:20px;">JD7 Avatars — Signature Roles</h2>
-
-<div class="avatar-grid fide-in">
-
-  <div class="avatar-card">
-    <div class="avatar-name guardian">The Guardian</div>
-    <div class="avatar-role">Protection • Cinematic + Neon</div>
-  </div>
-
-  <div class="avatar-card">
-    <div class="avatar-name navigator">The Navigator</div>
-    <div class="avatar-role">Strategy • Noir + Tech</div>
-  </div>
-
-  <div class="avatar-card">
-    <div class="avatar-name architect">The Architect</div>
-    <div class="avatar-role">Systems • Minimal + Tech</div>
-  </div>
-
-  <div class="avatar-card">
-    <div class="avatar-name phantom">The Phantom</div>
-    <div class="avatar-role">Shadows • Dark Ritual + Noir</div>
-  </div>
-
-  <div class="avatar-card">
-    <div class="avatar-name oracle">The Oracle</div>
-    <div class="avatar-role">Insight • Neon Mystic</div>
-  </div>
-
-  <div class="avatar-card runner">
-    <div class="avatar-name runner">The Runner</div>
-    <div class="avatar-role">Motion • Urban + Motion</div>
-  </div>
-
-  <div class="avatar-card">
-    <div class="avatar-name sentinel">The Sentinel</div>
-    <div class="avatar-role">Defense • Heavy Cyber</div>
-  </div>
-
-  <div class="avatar-card">
-    <div class="avatar-name whisper">The Whisper</div>
-    <div class="avatar-role">Influence • Soft Cinematic</div>
-  </div>
-
-  <div class="avatar-card">
-    <div class="avatar-name pulse">The Pulse</div>
-    <div class="avatar-role">Rhythm • Neon Rhythm</div>
-  </div>
-
-  <div class="avatar-card">
-    <div class="avatar-name prime">The Prime</div>
-    <div class="avatar-role">Identity • JD7 Signature Mix</div>
-  </div>
-
-</div>
-
-<!-- MINI SECTIONS -->
-
-<div class="section fade-in">
-  <h2>Clips</h2>
-  <div class="mini-grid">
-    <div class="mini-card">
-      <h3>Transit Mix — Official Clip</h3>
-      <p>Main JD7 cinematic video.</p>
-    </div>
-    <div class="mini-card">
-      <h3>Avatar Motion Cut</h3>
-      <p>Short cinematic sequence.</p>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <h2>NFT</h2>
-  <div class="mini-grid">
-    <div class="mini-card">
-      <h3>JD7 NFT Keys</h3>
-      <p>Level I–III access keys.</p>
-    </div>
-    <div class="mini-card">
-      <h3>Avatar NFT Series</h3>
-      <p>10 avatars × multiple variations.</p>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <h2>Releases</h2>
-  <div class="mini-grid">
-    <div class="mini-card">
-      <h3>New Album — JD7</h3>
-      <p>Cinematic, cyber, ritual tracks.</p>
-    </div>
-    <div class="mini-card">
-      <h3>Singles & Remixes</h3>
-      <p>Spotify / Apple / YouTube.</p>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <h2>JD7 Justice</h2>
-  <div class="mini-grid">
-    <div class="mini-card">
-      <h3>Anti‑Fraud Center</h3>
-      <p>Verification & safety rules.</p>
-    </div>
-    <div class="mini-card">
-      <h3>Justice Rituals</h3>
-      <p>Protection & responsibility.</p>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <h2>Bots</h2>
-  <div class="mini-grid">
-    <div class="mini-card">
-      <h3>JD7BOT Core</h3>
-      <p>Main system interface.</p>
-    </div>
-    <div class="mini-card">
-      <h3>Security Bot</h3>
-      <p>Anti‑fraud logic.</p>
-    </div>
-  </div>
-</div>
-
-<footer>
-  © 2026 JD7Co — Ritual Tech Ecosystem
-</footer>
-
-</body>
-</html>
+      opacity: 0
