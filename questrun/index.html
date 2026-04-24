@@ -103,7 +103,27 @@ const JD7QuestStateKey = 'JD7QuestState';
 function jd7LoadQuestState() {
   const saved = localStorage.getItem(JD7QuestStateKey);
   if (!saved) return;
+if (saved) {
+  const data = JSON.parse(saved);
+  const today = new Date().toISOString().slice(0, 10);
 
+  JD7Quests.forEach(q => {
+    const savedQuest = data.quests[q.id];
+
+    if (!savedQuest) return;
+
+    if (q.type === "daily") {
+      if (data.date === today) q.done = savedQuest.done;
+    }
+
+    if (q.type === "weekly") {
+      if (jd7IsSameWeek(data.date, today)) {
+        q.done = savedQuest.done;
+        q.progress = savedQuest.progress;
+      }
+    }
+  });
+}
   const data = JSON.parse(saved);
   const today = new Date().toISOString().slice(0, 10);
 
