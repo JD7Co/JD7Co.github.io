@@ -117,6 +117,17 @@
   fetch('/core/jd7-menu.html')
     .then(r => r.text())
     .then(html => document.getElementById('jd7-menu').innerHTML = html);
+<div style="text-align:center;margin-top:20px;color:#7df9ff;font-size:18px;">
+  <span id="world-level">Level 1</span>
+</div>
+
+<script>
+  function jd7UpdateWorldLevel() {
+    const el = document.getElementById('world-level');
+    if (el) el.innerText = `Level ${JD7State.level}`;
+  }
+  jd7UpdateWorldLevel();
+</script>
 </script>
 <h1>JD7 WORLD — LUNA MAP</h1>
 <p>Главная карта экосистемы JD7. Переходы между модулями.</p>
