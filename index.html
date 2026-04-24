@@ -1,709 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
   <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>JD7 Ritual Tech Ecosystem | Avatars • NFT • AI Bots</title>
+  <title>JD7 Ritual Tech Ecosystem</title>
 
-  <meta name="description"
-        content="JD7 Ritual Tech Ecosystem — digital avatars, NFT collections, music releases and AI bots infrastructure." />
+  <meta name="description" content="JD7 Ritual Tech Ecosystem — Avatars, NFT, Clips, Releases, Bots, Justice, World, School." />
+  <meta name="author" content="JD7Co" />
 
-     <meta name="author" content="JD7Co" />
-
-  <!-- Open Graph (Telegram / Discord / X preview) -->
+  <!-- OpenGraph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="JD7 Ritual Tech Ecosystem" />
-  <meta property="og:description"
-        content="Explore JD7 digital ecosystem: Avatars, NFT, AI bots and ritual tech media." />
-  <meta property="og:url" content="https://jd7co.github.io/" />
+  <meta property="og:description" content="Avatars • NFT • AI Bots • Ritual Tech" />
   <meta property="og:image" content="https://jd7co.github.io/preview.jpg" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="JD7 Ritual Tech Ecosystem" />
-  <meta name="twitter:description"
-        content="Avatars, NFT, Media Releases, AI Bots." />
-  <meta name="twitter:image" content="https://jd7co.github.io/preview.jpg" />
-</head>
-  <meta>
- charset="UTF-8" />
-  <title>JD7 Portal — Avatars, Clips, NFT, Justice</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #7df9ff;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 32px;
+    }
+
+    .subtitle {
+      text-align: center;
+      opacity: 0.7;
+      margin-bottom: 40px;
+    }
+
+    /* GRID PORTAL */
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .portal-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      transition: 0.2s;
+    }
+
+    .portal-card:hover {
+      background: rgba(125,249,255,0.1);
+      border-color: #7df9ff;
+    }
+
+    .portal-title {
+      font-size: 18px;
+      color: #ffcc66;
+      margin-bottom: 6px;
+    }
+
+    /* AVATAR GRID */
+    .avatar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .avatar-card {
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #333;
+      background: rgba(255,255,255,0.05);
+      transition: 0.25s;
+    }
+
+    .avatar-card:hover {
+      transform: translateY(-4px);
+      border-color: #7df9ff;
+      background: rgba(125,249,255,0.08);
+    }
+
+    .avatar-role {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 6px;
+    }
+
+    .avatar-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    /* Neon role colors */
+    .guardian { color: #7df9ff; }
+    .navigator { color: #ffcc66; }
+    .architect { color: #66ff99; }
+    .phantom { color: #b366ff; }
+    .oracle { color: #ff66cc; }
+    .runner { color: #ff6666; }
+    .sentinel { color: #66aaff; }
+    .whisper { color: #ccccff; }
+    .pulse { color: #ff6699; }
+    .prime { color: #ffffff; }
+
+    /* MINI SECTIONS */
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .section h2 {
+      color: #7df9ff;
+      margin-bottom: 10px;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .mini-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    footer {
+      text-align: center;
+      opacity: 0.5;
+      margin-top: 40px;
+      padding-bottom: 20px;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <h1>JD7 Ritual Tech Ecosystem</h1>
-  <p>Digital Infrastructure • Avatars • NFT • AI Bots</p>
-</header>
+<!-- MENU -->
+<div id="jd7-menu"></div>
+<script>
+  fetch('/core/jd7-menu.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('jd7-menu').innerHTML = html);
+</script>
 
-<nav class="main-nav">
-  <a href="/avatars/">Avatars</a>
-  <a href="/clips/">Clips</a>
-  <a href="/nft/">NFT</a>
-  <a href="/releases/">Releases</a>
-  <a href="/justice/">JD7 Justice</a>
-  <a href="/bots/">Bots</a>
+<!-- HERO -->
+<h1>JD7 Ritual Tech Ecosystem</h1>
+<div class="subtitle">Digital Infrastructure • Avatars • NFT • AI Bots</div>
 
-  <!-- Новые разделы JD7 WORLD -->
-  <a href="/world/">World</a>
-  <a href="/school/">School</a>
-  <a href="/games/">Games</a>
-</nav>
+<!-- PORTAL GRID -->
+<div class="portal-grid">
 
-<main>
+  <a class="portal-card" href="/avatars/">
+    <div class="portal-title">Avatars</div>
+    <div>10 JD7 Roles</div>
+  </a>
 
-<section id="avatars">
-  <h2>Avatars</h2>
-  <h3>Avatar I — The Architect</h3>
-  <p>Description here.</p>
-</section>
+  <a class="portal-card" href="/clips/">
+    <div class="portal-title">Clips</div>
+    <div>Reels & Cinematic</div>
+  </a>
 
-<section id="nft">
-  <h2>NFT & Digital Keys</h2>
-  <p>Description here.</p>
-</section>
+  <a class="portal-card" href="/nft/">
+    <div class="portal-title">NFT</div>
+    <div>Keys & Collections</div>
+  </a>
 
-<section id="releases">
-  <h2>Music Releases</h2>
-  <p>Description here.</p>
-</section>
+  <a class="portal-card" href="/releases/">
+    <div class="portal-title">Releases</div>
+    <div>Music & Media</div>
+  </a>
 
-<section id="bots">
-  <h2>AI Bots</h2>
-  <p>Description here.</p>
-</section>
+  <a class="portal-card" href="/justice/">
+    <div class="portal-title">Justice</div>
+    <div>Anti‑Fraud</div>
+  </a>
 
-<section id="justice">
-  <h2>JD7 Justice</h2>
-  <p>Description here.</p>
-</section>
+  <a class="portal-card" href="/bots/">
+    <div class="portal-title">Bots</div>
+    <div>JD7BOT System</div>
+  </a>
 
-</main>
+  <a class="portal-card" href="/world/">
+    <div class="portal-title">World</div>
+    <div>LUNA Map</div>
+  </a>
 
-</body>
-<body>
-  <header class="jd7-header">
-    <div class="logo">JD7</div>
-    <nav class="main-nav">
-      <a href="#avatars">Avatars</a>
-      <a href="#clips">Clips</a>
-      <a href="#nft">NFT</a>
-      <a href="#releases">Releases</a>
-      <a href="#justice">JD7 Justice</a>
-      <a href="#bots">Bots</a>
+  <a class="portal-card" href="/school/">
+    <div class="portal-title">School</div>
+    <div>XP & Levels</div>
+  </a>
 
-      <!-- Новые разделы JD7 WORLD -->
-      <a href="/world/">World</a>
-      <a href="/school/">School</a>
-      <a href="/games/">Games</a>
-    </nav>
-  </header>
+  <a class="portal-card" href="/questrun/">
+    <div class="portal-title">QuestRun</div>
+    <div>Daily & Weekly</div>
+  </a>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <h1>JD7 Ritual Tech Ecosystem</h1>
-      <p>Creation. Protection. Transformation. Justice.</p>
-    </section>
+</div>
 
-    <!-- AVATARS -->
-<section id="avatars">
+<!-- AVATARS SECTION -->
+<h2 style="color:#7df9ff; margin-bottom:20px;">JD7 Avatars — Signature Roles</h2>
+
 <div class="avatar-grid">
 
-  <div class="avatar-slot">
-    <div class="avatar-thumb guardian">GUARDIAN</div>
-    <h3>The Guardian</h3>
-    <p>Protection • Cinematic + Neon</p>
+  <div class="avatar-card">
+    <div class="avatar-name guardian">The Guardian</div>
+    <div class="avatar-role">Protection • Cinematic + Neon</div>
   </div>
 
-  <div class="avatar-slot">
-    <div class="avatar-thumb navigator">NAVIGATOR</div>
-    <h3>The Navigator</h3>
-    <p>Strategy • Noir + Tech</p>
+  <div class="avatar-card">
+    <div class="avatar-name navigator">The Navigator</div>
+    <div class="avatar-role">Strategy • Noir + Tech</div>
   </div>
 
-  <div class="avatar-slot">
-    <div class="avatar-thumb architect">ARCHITECT</div>
-    <h3>The Architect</h3>
-    <p>Systems • Minimal + Tech</p>
+  <div class="avatar-card">
+    <div class="avatar-name architect">The Architect</div>
+    <div class="avatar-role">Systems • Minimal + Tech</div>
   </div>
 
-  <div class="avatar-slot">
-    <div class="avatar-thumb phantom">PHANTOM</div>
-    <h3>The Phantom</h3>
-    <p>Shadows • Dark Ritual + Noir</p>
+  <div class="avatar-card">
+    <div class="avatar-name phantom">The Phantom</div>
+    <div class="avatar-role">Shadows • Dark Ritual + Noir</div>
   </div>
 
-  <div class="avatar-slot">
-    <div class="avatar-thumb oracle">ORACLE</div>
-    <h3>The Oracle</h3>
-    <p>Insight • Neon Mystic</p>
+  <div class="avatar-card">
+    <div class="avatar-name oracle">The Oracle</div>
+    <div class="avatar-role">Insight • Neon Mystic</div>
   </div>
 
-  <div class="avatar-slot">
-    <div class="avatar-thumb runner">RUNNER</div>
-    <h3>The Runner</h3>
-    <p>Motion • Urban + Motion</p>
+  <div class="avatar-card runner">
+    <div class="avatar-name runner">The Runner</div>
+    <div class="avatar-role">Motion • Urban + Motion</div>
   </div>
 
-  <div class="avatar-slot">
-    <div class="avatar-thumb sentinel">SENTINEL</div>
-    <h3>The Sentinel</h3>
-    <p>Defense • Heavy Cyber</p>
+  <div class="avatar-card">
+    <div class="avatar-name sentinel">The Sentinel</div>
+    <div class="avatar-role">Defense • Heavy Cyber</div>
   </div>
 
-  <div class="avatar-slot">
-    <div class="avatar-thumb whisper">WHISPER</div>
-    <h3>The Whisper</h3>
-    <p>Influence • Soft Cinematic</p>
+  <div class="avatar-card">
+    <div class="avatar-name whisper">The Whisper</div>
+    <div class="avatar-role">Influence • Soft Cinematic</div>
   </div>
 
-  <div class="avatar-slot">
-    <div class="avatar-thumb pulse">PULSE</div>
-    <h3>The Pulse</h3>
-    <p>Rhythm • Neon Rhythm</p>
+  <div class="avatar-card">
+    <div class="avatar-name pulse">The Pulse</div>
+    <div class="avatar-role">Rhythm • Neon Rhythm</div>
   </div>
 
-  <div class="avatar-slot">
-    <div class="avatar-thumb prime">PRIME</div>
-    <h3>The Prime</h3>
-    <p>Identity • JD7 Signature Mix</p>
+  <div class="avatar-card">
+    <div class="avatar-name prime">The Prime</div>
+    <div class="avatar-role">Identity • JD7 Signature Mix</div>
   </div>
 
 </div>
-<div class="media-grid">
 
-  <div class="media-slot">
-    <div class="media-thumb clip-thumb">CLIP</div>
-    <h3>Transit Mix — Official Clip</h3>
-    <p>Main JD7 video. Avatars in lead roles.</p>
-  </div>
+<!-- MINI SECTIONS -->
 
-  <div class="media-slot">
-    <div class="media-thumb clip-thumb">CLIP</div>
-    <h3>Avatar Motion Cut</h3>
-    <p>Short cinematic sequence featuring Avatar #1 and #3.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb clip-thumb">VERTICAL</div>
-    <h3>JD7 Vertical Reels</h3>
-    <p>Shorts / TikTok / Reels versions for social media.</p>
-  </div>
-
-</div>
-    <section id="avatars" class="block">
-  <h2>Avatars</h2>
-  <p>10 JD7 Signature Mix entities — roles of the ecosystem.</p>
-
-  <div class="grid">
-
-    <article class="card">
-      <h3>Avatar 1 — The Guardian</h3>
-      <p>Style: Cinematic + Neon<br>Function: Protection, order, control.</p>
-    </article>
-
-    <article class="card">
-      <h3>Avatar 2 — The Navigator</h3>
-      <p>Style: Noir + Tech<br>Function: Strategy, routes, decisions.</p>
-    </article>
-
-    <article class="card">
-      <h3>Avatar 3 — The Architect</h3>
-      <p>Style: Minimal + Tech<br>Function: Systems, structure, logic.</p>
-    </article>
-
-    <article class="card">
-      <h3>Avatar 4 — The Phantom</h3>
-      <p>Style: Dark Ritual + Noir<br>Function: Hidden processes, shadow protection.</p>
-    </article>
-
-    <article class="card">
-      <h3>Avatar 5 — The Oracle</h3>
-      <p>Style: Neon Mystic<br>Function: Foresight, intuition, signals.</p>
-    </article>
-
-    <article class="card">
-      <h3>Avatar 6 — The Runner</h3>
-      <p>Style: Urban + Motion<br>Function: Speed, delivery, dynamics.</p>
-    </article>
-
-    <article class="card">
-      <h3>Avatar 7 — The Sentinel</h3>
-      <p>Style: Heavy Cyber<br>Function: Defense, stability, control.</p>
-    </article>
-
-    <article class="card">
-      <h3>Avatar 8 — The Whisper</h3>
-      <p>Style: Soft Cinematic<br>Function: Communication, influence.</p>
-    </article>
-
-    <article class="card">
-      <h3>Avatar 9 — The Pulse</h3>
-      <p>Style: Neon Rhythm<br>Function: Music, rhythm, motion.</p>
-    </article>
-
-    <article class="card">
-      <h3>Avatar 10 — The Prime</h3>
-      <p>Style: JD7 Signature Mix<br>Function: Identity, leadership, core presence.</p>
-    </article>
-
-  </div>
-</section>   
-
-    <!-- CLIPS -->
-<div class="media-grid">
-
-  <div class="media-slot">
-    <div class="media-thumb clip-thumb">CLIP</div>
-    <h3>Transit Mix — Official Clip</h3>
-    <p>Main JD7 video. Avatars in lead roles.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb clip-thumb">CLIP</div>
-    <h3>Avatar Motion Cut</h3>
-    <p>Short cinematic sequence featuring Avatar #1 and #3.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb clip-thumb">VERTICAL</div>
-    <h3>JD7 Vertical Reels</h3>
-    <p>Shorts / TikTok / Reels versions for social media.</p>
-  </div>
-
-</div>
-<div class="media-grid">
-
-  <div class="media-slot">
-    <div class="media-thumb clip-thumb">CLIP</div>
-    <h3>Transit Mix — Official Clip</h3>
-    <p>Main JD7 video. Avatars in lead roles.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb clip-thumb">CLIP</div>
-    <h3>Avatar Motion Cut</h3>
-    <p>Short cinematic sequence featuring Avatar #1 and #3.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb clip-thumb">VERTICAL</div>
-    <h3>JD7 Vertical Reels</h3>
-    <p>Shorts / TikTok / Reels versions for social media.</p>
-  </div>
-
-</div>
-<section id="clips" class="block">
+<div class="section">
   <h2>Clips</h2>
-  <p>Official music videos, avatar‑driven clips, shorts.</p>
-
-  <div class="grid">
-
-    <article class="card">
+  <div class="mini-grid">
+    <div class="mini-card">
       <h3>Transit Mix — Official Clip</h3>
-      <p>Main JD7 video. Avatars in lead roles.</p>
-      <!-- Когда будет YouTube — вставим сюда iframe -->
-    </article>
-
-    <article class="card">
+      <p>Main JD7 cinematic video.</p>
+    </div>
+    <div class="mini-card">
       <h3>Avatar Motion Cut</h3>
-      <p>Short cinematic sequence featuring Avatar #1 and #3.</p>
-    </article>
-
-    <article class="card">
-      <h3>JD7 Vertical Reels</h3>
-      <p>Shorts / TikTok / Reels versions for social media.</p>
-    </article>
-
+      <p>Short cinematic sequence.</p>
+    </div>
   </div>
-</section>
-
-<article class="card">
-  <h3>Avatar Roles in Clips</h3>
-  <p>Each JD7 avatar appears in cinematic sequences:</p>
-  <ul>
-    <li>The Guardian — intro scenes, protection arcs</li>
-    <li>The Phantom — shadow transitions</li>
-    <li>The Pulse — rhythm and motion shots</li>
-    <li>The Prime — main identity moments</li>
-  </ul>
-</article>
-
-
-    <!-- NFT -->
-<div class="media-grid">
-
-  <div class="media-slot">
-    <div class="media-thumb nft-thumb">KEY I</div>
-    <h3>JD7 NFT Keys — Level I</h3>
-    <p>Access: basic rituals, early drops, identity verification.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb nft-thumb">KEY II</div>
-    <h3>JD7 NFT Keys — Level II</h3>
-    <p>Access: avatar modules, extended content, private drops.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb nft-thumb">KEY III</div>
-    <h3>JD7 NFT Keys — Level III</h3>
-    <p>Access: advanced rituals, deep modules, rare drops.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb nft-thumb">AVATAR</div>
-    <h3>Avatar NFT Series — JD7 Signature Mix</h3>
-    <p>10 avatars, each representing a core JD7 role.</p>
-  </div>
-
 </div>
-    <section id="nft" class="block">
-<div class="media-grid">
 
-  <div class="media-slot">
-    <div class="media-thumb nft-thumb">KEY I</div>
-    <h3>JD7 NFT Keys — Level I</h3>
-    <p>Access: basic rituals, early drops, identity verification.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb nft-thumb">KEY II</div>
-    <h3>JD7 NFT Keys — Level II</h3>
-    <p>Access: avatar modules, extended content, private drops.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb nft-thumb">KEY III</div>
-    <h3>JD7 NFT Keys — Level III</h3>
-    <p>Access: advanced rituals, deep modules, rare drops.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb nft-thumb">AVATAR</div>
-    <h3>Avatar NFT Series — JD7 Signature Mix</h3>
-    <p>10 avatars, each representing a core JD7 role.</p>
-  </div>
-
-</div>
+<div class="section">
   <h2>NFT</h2>
-  <p>JD7 NFT Keys, avatar collections, album artifacts.</p>
-
-  <div class="grid">
-
-    <article class="card">
-      <h3>JD7 NFT Keys — Level I</h3>
-      <p>Access: basic rituals, early drops, identity verification.</p>
-    </article>
-
-    <article class="card">
-      <h3>JD7 NFT Keys — Level II</h3>
-      <p>Access: avatar modules, extended content, private drops.</p>
-    </article>
-
-    <article class="card">
+  <div class="mini-grid">
+    <div class="mini-card">
+      <h3>JD7 NFT Keys</h3>
+      <p>Level I–III access keys.</p>
+    </div>
+    <div class="mini-card">
       <h3>Avatar NFT Series</h3>
-      <p>10 avatars × multiple variations. Cinematic, neon, noir.</p>
-    </article>
-<div class="grid">
-
-  <article class="card">
-    <h3>Avatar NFT Series — JD7 Signature Mix</h3>
-    <p>10 avatars, each representing a core JD7 role.</p>
-    <ul>
-      <li>The Guardian — Protection</li>
-      <li>The Navigator — Strategy</li>
-      <li>The Architect — Systems</li>
-      <li>The Phantom — Shadows</li>
-      <li>The Oracle — Insight</li>
-      <li>The Runner — Motion</li>
-      <li>The Sentinel — Defense</li>
-      <li>The Whisper — Influence</li>
-      <li>The Pulse — Rhythm</li>
-      <li>The Prime — Identity</li>
-    </ul>
-  </article>
-
+      <p>10 avatars × multiple variations.</p>
+    </div>
+  </div>
 </div>
 
-    <article class="card">
-      <h3>Album NFT Collection</h3>
-      <p>Cover art, clip frames, ritual artifacts, limited editions.</p>
-    </article>
-
-    <article class="card">
-      <h3>Metadata Hub</h3>
-      <p>JSON files, CID links, IPFS structure for all JD7 assets.</p>
-    </article>
-
-  </div>
-</section>
-
-    <!-- RELEASES -->
-<div class="media-grid">
-
-  <div class="media-slot">
-    <div class="media-thumb release-thumb">ALBUM</div>
-    <h3>New Album — JD7</h3>
-    <p>Main release of the cycle. Cinematic, cyber, ritual tracks.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb release-thumb">SINGLE</div>
-    <h3>Singles</h3>
-    <p>Individual tracks released before the album.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb release-thumb">REMIX</div>
-    <h3>Transit Mix</h3>
-    <p>Alternative versions, extended cuts, motion edits.</p>
-  </div>
-
-</div>
-    <section id="releases" class="block">
-<div class="media-grid">
-
-  <div class="media-slot">
-    <div class="media-thumb release-thumb">ALBUM</div>
-    <h3>New Album — JD7</h3>
-    <p>Main release of the cycle. Cinematic, cyber, ritual tracks.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb release-thumb">SINGLE</div>
-    <h3>Singles</h3>
-    <p>Individual tracks released before the album.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb release-thumb">REMIX</div>
-    <h3>Transit Mix</h3>
-    <p>Alternative versions, extended cuts, motion edits.</p>
-  </div>
-
-</div>
+<div class="section">
   <h2>Releases</h2>
-  <p>Albums, singles, remixes, multilingual lyrics.</p>
-
-  <div class="grid">
-
-    <article class="card">
+  <div class="mini-grid">
+    <div class="mini-card">
       <h3>New Album — JD7</h3>
-      <p>Main release of the cycle. Includes cinematic, cyber, and ritual tracks.</p>
-    </article>
-
-    <article class="card">
-      <h3>Singles</h3>
-      <p>Individual tracks released before the album. Spotify / Apple / YouTube links.</p>
-    </article>
-
-    <article class="card">
-      <h3>Transit Mix</h3>
-      <p>JD7 remix edition. Alternative versions, extended cuts, motion edits.</p>
-    </article>
-
-    <article class="card">
-      <h3>Multilingual Lyrics</h3>
-      <p>RU / EN / LT versions for all tracks. Clean formatting for publishing.</p>
-    </article>
-
-    <article class="card">
-      <h3>DAW Packs</h3>
-      <p>Stems, project files, README, structure for remixers and collaborators.</p>
-    </article>
-
+      <p>Cinematic, cyber, ritual tracks.</p>
+    </div>
+    <div class="mini-card">
+      <h3>Singles & Remixes</h3>
+      <p>Spotify / Apple / YouTube.</p>
+    </div>
   </div>
-</section>
-<article class="card">
-  <h3>Avatar Integration</h3>
-  <p>Each track features a symbolic avatar presence:</p>
-  <ul>
-    <li>The Pulse — rhythm‑driven tracks</li>
-    <li>The Oracle — atmospheric intros</li>
-    <li>The Runner — high‑energy sequences</li>
-    <li>The Prime — main album identity</li>
-  </ul>
-</article>
-
-    <!-- JD7 JUSTICE -->
-<div class="media-grid">
-
-  <div class="media-slot">
-    <div class="media-thumb justice-thumb">ALERT</div>
-    <h3>Anti-Fraud Center</h3>
-    <p>Warnings, verification rules, scam-avoidance guidelines.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb justice-thumb">RITUAL</div>
-    <h3>Justice Rituals</h3>
-    <p>Philosophy of protection, responsibility, transformation.</p>
-  </div>
-
 </div>
-    <section id="justice" class="block">
-<div class="media-grid">
 
-  <div class="media-slot">
-    <div class="media-thumb justice-thumb">ALERT</div>
-    <h3>Anti-Fraud Center</h3>
-    <p>Warnings, verification rules, scam-avoidance guidelines.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb justice-thumb">RITUAL</div>
-    <h3>Justice Rituals</h3>
-    <p>Philosophy of protection, responsibility, transformation.</p>
-  </div>
-
-</div>
+<div class="section">
   <h2>JD7 Justice</h2>
-  <p>Anti‑fraud, advocacy, community protection.</p>
-
-  <div class="grid">
-
-    <article class="card">
+  <div class="mini-grid">
+    <div class="mini-card">
       <h3>Anti‑Fraud Center</h3>
-      <p>Official JD7 warnings, verification rules, scam‑avoidance guidelines.</p>
-    </article>
-
-    <article class="card">
-      <h3>JD7 Advocacy</h3>
-      <p>Statements, educational posts, community protection messages.</p>
-    </article>
-
-    <article class="card">
+      <p>Verification & safety rules.</p>
+    </div>
+    <div class="mini-card">
       <h3>Justice Rituals</h3>
-      <p>JD7 philosophy: protection, responsibility, transformation.</p>
-    </article>
-
-    <article class="card">
-      <h3>Community Safety</h3>
-      <p>Shareable visuals, multilingual alerts, social media formats.</p>
-    </article>
-
+      <p>Protection & responsibility.</p>
+    </div>
   </div>
-</section>
-<article class="card">
-  <h3>Justice Avatars</h3>
-  <p>Avatars representing protection and advocacy:</p>
-  <ul>
-    <li>The Guardian — anti‑fraud rules</li>
-    <li>The Sentinel — verification logic</li>
-    <li>The Phantom — hidden threat detection</li>
-  </ul>
-</article>
-
-    <!-- BOTS -->
-<div class="media-grid">
-
-  <div class="media-slot">
-    <div class="media-thumb bot-thumb">CORE</div>
-    <h3>JD7BOT Core — The Prime</h3>
-    <p>Main interface of the JD7 system.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb bot-thumb">SEC</div>
-    <h3>Security Bot — The Guardian</h3>
-    <p>Anti-fraud logic, verification rules.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb bot-thumb">NAV</div>
-    <h3>Navigation Bot — The Navigator</h3>
-    <p>Routes, quick access, intelligent transitions.</p>
-  </div>
-
 </div>
-    <section id="bots" class="block">
-<div class="media-grid">
 
-  <div class="media-slot">
-    <div class="media-thumb bot-thumb">CORE</div>
-    <h3>JD7BOT Core — The Prime</h3>
-    <p>Main interface of the JD7 system.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb bot-thumb">SEC</div>
-    <h3>Security Bot — The Guardian</h3>
-    <p>Anti-fraud logic, verification rules.</p>
-  </div>
-
-  <div class="media-slot">
-    <div class="media-thumb bot-thumb">NAV</div>
-    <h3>Navigation Bot — The Navigator</h3>
-    <p>Routes, quick access, intelligent transitions.</p>
-  </div>
-
-</div><article class="card">
-  <h3>JD7BOT System Diagram</h3>
-  <pre class="diagram">
-JD7BOT (The Prime)
-│
-├── Security Bot (Guardian)
-│     └── Anti-Fraud Logic
-│
-├── Navigation Bot (Navigator)
-│     └── Routes & Transitions
-│
-├── Insight Bot (Oracle)
-│     └── Recommendations & Signals
-│
-└── Motion Bot (Runner)
-      └── Clips & Dynamics
-  </pre>
-</article>
+<div class="section">
   <h2>Bots</h2>
-  <p>JD7BOT, JD7App, automation flows, avatar‑powered interfaces.</p>
-
-  <div class="grid">
-
-    <article class="card">
-      <h3>JD7BOT</h3>
-      <p>Main assistant module. Ritual guidance, system navigation, protection logic.</p>
-    </article>
-
-    <article class="card">
-      <h3>JD7App</h3>
-      <p>Web module for quick access to JD7 tools, links, releases, and identity checks.</p>
-    </article>
-
-    <article class="card">
-      <h3>Automation Flows</h3>
-      <p>Technical diagrams, API interactions, Web3 triggers, system routines.</p>
-    </article>
-
-    <article class="card">
-      <h3>Avatar‑Powered Bots</h3>
-      <p>Avatars as interfaces: visual responses, identity modules, cinematic presence.</p>
-    </article>
-
-<article class="card">
-  <h3>Avatar‑Powered Bots</h3>
-  <p>Each bot inherits a JD7 avatar role:</p>
-  <ul>
-    <li>JD7BOT — The Prime</li>
-    <li>Security Bot — The Guardian</li>
-    <li>Navigation Bot — The Navigator</li>
-    <li>Insight Bot — The Oracle</li>
-  </ul>
-</article>
+  <div class="mini-grid">
+    <div class="mini-card">
+      <h3>JD7BOT Core</h3>
+      <p>Main system interface.</p>
+    </div>
+    <div class="mini-card">
+      <h3>Security Bot</h3>
+      <p>Anti‑fraud logic.</p>
+    </div>
   </div>
-</section>
-  </main>
+</div>
 
 <footer>
-  <p>© 2026 JD7Co. All rights reserved.</p>
+  © 2026 JD7Co — Ritual Tech Ecosystem
 </footer>
 
-  <footer class="jd7-footer">
-    <p>© JD7 & Co — Ritual Tech Ecosystem</p>
-  </footer>
 </body>
 </html>
