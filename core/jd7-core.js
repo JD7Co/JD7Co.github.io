@@ -41,3 +41,10 @@ function jd7SetXP(barId, textId, current, max) {
 function jd7Go(url) {
   window.location.href = url;
 }
+// Меню (бургер)
+function jd7ToggleMenu() {
+  const links = document.getElementById('jd7-links');
+  if (links) {
+    links.classList.toggle('open');
+  }
+}
