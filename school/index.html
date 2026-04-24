@@ -1,164 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-<script src="/core/jd7-core.js"></script>
   <meta charset="UTF-8" />
+  <title>JD7 SCHOOL LUNA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JD7 SCHOOL LUNA — Levels</title>
+
+  <!-- CORE STYLES -->
+  <link rel="stylesheet" href="/core/theme.css">
+  <link rel="stylesheet" href="/core/crystal.css">
+  <link rel="stylesheet" href="/core/access.css">
 
   <style>
-.nav-link {
-  color: #7df9ff;
-  text-decoration: none;
-  font-size: 16px;
-  opacity: 0.8;
-}
-.nav-link:hover {
-  opacity: 1;
-}
     body {
-      background: #0a0a0a;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      padding: 40px 20px;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.6s ease, color 0.6s ease;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      overflow-x: hidden;
     }
 
-    h1 {
-      text-align: center;
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 16px 80px;
+    }
+
+    .title {
+      margin-top: 40px;
       font-size: 32px;
-      color: #ffcc66;
-      margin-bottom: 20px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      margin-top: 12px;
+      font-size: 15px;
+      opacity: 0.8;
+      line-height: 1.6;
+      max-width: 640px;
+    }
+
+    .levels {
+      margin-top: 40px;
+      display: grid;
+      gap: 18px;
     }
 
     .level {
-      margin: 20px 0;
-      border: 1px solid #333;
-      border-radius: 10px;
+      padding: 18px 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
       background: rgba(255,255,255,0.03);
-      overflow: hidden;
+      transition: 0.25s ease;
+      cursor: pointer;
     }
 
-    .level-header {
-      padding: 20px;
-      cursor: pointer;
-      background: rgba(255,255,255,0.05);
+    body.theme-light .level,
+    body.theme-ebook .level {
+      border-color: rgba(0,0,0,0.12);
+      background: rgba(0,0,0,0.03);
+    }
+
+    .level:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-color);
     }
 
     .level-title {
-      font-size: 22px;
-      color: #7df9ff;
+      font-size: 18px;
+      margin-bottom: 6px;
     }
 
-    .tasks {
-      display: none;
-      padding: 20px;
-      border-top: 1px solid #333;
+    .level-desc {
+      font-size: 13px;
+      opacity: 0.75;
+      line-height: 1.5;
     }
 
-    .task {
-      margin: 10px 0;
-      padding: 10px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 6px;
+    .back-link {
+      margin-top: 40px;
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: 0.25s ease;
     }
 
-    .xp {
-      color: #ffcc66;
-      font-size: 14px;
-      opacity: 0.8;
+    .back-link:hover {
+      opacity: 1;
+      border-color: var(--accent-color);
     }
   </style>
-
-  <script>
-    function toggleTasks(id) {
-      const block = document.getElementById(id);
-      block.style.display = block.style.display === "block" ? "none" : "block";
-    }
-  </script>
 </head>
 
-<body>
-<div id="jd7-menu"></div>
-<script>
-  fetch('/core/jd7-menu.html')
-    .then(r => r.text())
-    .then(html => document.getElementById('jd7-menu').innerHTML = html);
-</script>
-<h1>JD7 SCHOOL LUNA</h1>
-<p style="text-align:center; opacity:0.8;">Обучение, уровни, задания, прогресс.</p>
-</div>
-<!-- LEVEL 1 -->
-<div class="level">
-  <div class="level-header" onclick="toggleTasks('l1'); jd7AddXP(20);">
-    <div class="level-title">Level 1 — Identity</div>
-  </div>
-  <div class="tasks" id="l1">
-    <div class="task">Task 1: Изучить 10 JD7 ролей <span class="xp">+10 XP</span></div>
-    <div class="task">Task 2: Понять структуру WORLD <span class="xp">+10 XP</span></div>
-    <div class="task">Task 3: Пройти навигацию портала <span class="xp">+10 XP</span></div>
-  </div>
-</div>
+<body class="theme-dark">
 
-<!-- LEVEL 2 -->
-<div class="level">
-  <div class="level-header" onclick="toggleTasks('l2')">
-    <div class="level-title">Level 2 — Motion</div>
-  </div>
-  <div class="tasks" id="l2">
-    <div class="task">Task 1: Создать 1 рилс <span class="xp">+15 XP</span></div>
-    <div class="task">Task 2: Освоить переходы <span class="xp">+15 XP</span></div>
-  </div>
-</div>
+  <!-- NAVIGATION -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <a href="/" class="nav-link">WORLD</a>
 
-<!-- LEVEL 3 -->
-<div class="level">
-  <div class="level-header" onclick="toggleTasks('l3')">
-    <div class="level-title">Level 3 — NFT Keys</div>
-  </div>
-  <div class="tasks" id="l3">
-    <div class="task">Task 1: Понять CID <span class="xp">+20 XP</span></div>
-    <div class="task">Task 2: Создать NFT metadata <span class="xp">+20 XP</span></div>
-  </div>
-</div>
+      <div class="nav-crystal-wrapper">
+        <button id="jd7-crystal" class="crystal-button">
+          <div class="crystal-orbit">
+            <div class="crystal-shell">
+              <div class="crystal-plasma"></div>
+              <div class="crystal-core"></div>
+              <div class="crystal-glow"></div>
+            </div>
+            <div class="crystal-label">JD7 THEME</div>
+          </div>
+        </button>
+      </div>
 
-<!-- LEVEL 4 -->
-<div class="level">
-  <div class="level-header" onclick="toggleTasks('l4')">
-    <div class="level-title">Level 4 — Creator Tools</div>
-  </div>
-  <div class="tasks" id="l4">
-    <div class="task">Task 1: Создать визуал <span class="xp">+25 XP</span></div>
-    <div class="task">Task 2: Подготовить ритуал <span class="xp">+25 XP</span></div>
-  </div>
-</div>
+      <a href="/school/" class="nav-link">SCHOOL</a>
+      <a href="/quest/" class="nav-link">QUEST</a>
+      <a href="/nft/" class="nav-link">NFT</a>
+      <a href="/bots/" class="nav-link">BOTS</a>
+    </div>
+  </header>
 
-<!-- LEVEL 5 -->
-<div class="level">
-  <div class="level-header" onclick="toggleTasks('l5')">
-    <div class="level-title">Level 5 — JD7BOT</div>
-  </div>
-  <div class="tasks" id="l5">
-    <div class="task">Task 1: Изучить маршруты бота <span class="xp">+30 XP</span></div>
-    <div class="task">Task 2: Создать 1 сценарий <span class="xp">+30 XP</span></div>
-  </div>
-</div>
-<div style="max-width:400px;margin:20px auto;">
-  <div id="xp-level" style="text-align:center;font-size:18px;color:#7df9ff;margin-bottom:8px;">
-    Level 1
-  </div>
-  <div style="height:10px;background:#222;border-radius:10px;overflow:hidden;">
-    <div id="xp-bar" style="height:10px;width:0;background:linear-gradient(90deg,#7df9ff,#ffcc66);transition:width 0.4s ease;"></div>
-  </div>
-  <div style="margin-top:8px;font-size:14px;opacity:0.8;text-align:center;">
-    <span id="xp-text">XP: 0 / 0</span>
-  </div>
-</div>
-<div style="text-align:center;margin-top:40px;">
-<a href="/world/" class="nav-link">← Back to JD7 WORLD</a>
-  </div>
-<script>
-  jd7AddXP(50);
-  console.log("XP TEST:", JD7State);
-</script>
-</body>
-</html>
+  <!-- CONTENT -->
+  <div class="page">
+
+    <h1 class="title">JD7 SCHOOL LUNA</h1>
+    <p class="subtitle">
+      Обучающий центр JD7.  
+      Здесь ты изучаешь механику мира, интерфейс, ритуалы, темы, фильтры и систему прогресса.
+      Каждый уровень — это шаг к пониманию JD7 WORLD.
+    </p>
+
+    <div class="levels">
+
+      <div class="level">
+        <div class="level-title">L1 — Основы JD7 WORLD</div>
+        <div class="level-desc">Что такое JD7, как работает портал, зачем нужны темы и кристалл.</div>
+      </div>
+
+      <div class="level">
+        <div class="level-title">L2 — Темы и ARTEFACT CORE</div>
+        <div class="level-desc">4 режима, плазма, ритуальное переключение, динамика интерфейса.</div>
+      </div>
+
+      <div class="level">
+        <div class="level-title">L3 — Accessibility Panel</div>
+        <div class="level-desc">Цветовые фильтры, доступность, UX для людей с нарушением зрения.</div>
+      </div>
+
+      <div class="level">
+        <div class="level-title">L4 — JD7 QUEST SYSTEM</div>
+        <div class="level-desc">Миссии, XP, уровни, прогресс, ежедневные задания.</div>
