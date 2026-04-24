@@ -180,6 +180,15 @@ function jd7SaveQuestState() {
           <div class="quest-btn ${q.done ? 'completed' : ''}"
                onclick="${q.done ? '' : `completeQuest('${q.id}')`}">
             ${q.done ? 'Completed' : `Claim +${q.xp} XP`}
+let progressHTML = "";
+
+if (q.type === "weekly") {
+  progressHTML = `
+    <div style="opacity:0.7;margin-bottom:6px;">
+      Progress: ${q.progress} / ${q.goal}
+    </div>
+  `;
+}
           </div>
         </div>
       `;
