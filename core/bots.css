@@ -1,0 +1,95 @@
+/* BOT CARD */
+.bot-card {
+  border-radius: 18px;
+  padding: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(125,249,255,0.25);
+  box-shadow: 0 0 14px rgba(125,249,255,0.25);
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.bot-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 22px rgba(125,249,255,0.45);
+  border-color: rgba(155,125,255,0.45);
+}
+
+.bot-img {
+  width: 100%;
+  height: 200px;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 14px;
+  box-shadow: inset 0 0 18px rgba(0,0,0,0.6);
+}
+
+.bot-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.bot-role {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 12px;
+}
+
+.bot-status {
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 12px;
+  letter-spacing: 0.1em;
+}
+
+.bot-status.online {
+  background: rgba(0,255,140,0.2);
+  color: #00ff8c;
+}
+
+.bot-status.offline {
+  background: rgba(255,0,80,0.2);
+  color: #ff0050;
+}
+
+.bot-status.ritual {
+  background: rgba(155,125,255,0.2);
+  color: #9b7dff;
+}
+
+.bot-energy {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.bot-energy-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7df9ff, #9b7dff);
+  box-shadow: 0 0 12px #7df9ff;
+}
+
+.bot-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, #7df9ff, #9b7dff);
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.bot-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px #7df9ff;
+}
