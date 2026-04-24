@@ -1,0 +1,39 @@
+{
+  "bots": [
+    {
+      "name": "JD7 Sentinel",
+      "role": "Security / Anti-Fraud",
+      "avatar": "https://jd7co.github.io/assets/bots/sentinel.png",
+      "status": "online",
+      "energy": 92
+    },
+    {
+      "name": "JD7 Archivist",
+      "role": "Knowledge / SCHOOL",
+      "avatar": "https://jd7co.github.io/assets/bots/archivist.png",
+      "status": "online",
+      "energy": 88
+    },
+    {
+      "name": "JD7 Runner",
+      "role": "QUEST / XP Engine",
+      "avatar": "https://jd7co.github.io/assets/bots/runner.png",
+      "status": "ritual",
+      "energy": 76
+    },
+    {
+      "name": "JD7 Oracle",
+      "role": "Predictions / Logic",
+      "avatar": "https://jd7co.github.io/assets/bots/oracle.png",
+      "status": "online",
+      "energy": 95
+    },
+    {
+      "name": "JD7 Crafter",
+      "role": "NFT / Assets",
+      "avatar": "https://jd7co.github.io/assets/bots/crafter.png",
+      "status": "offline",
+      "energy": 40
+    }
+  ]
+}
