@@ -98,7 +98,36 @@
     done: false
   }
 ];
+const JD7QuestStateKey = 'JD7QuestState';
 
+function jd7LoadQuestState() {
+  const saved = localStorage.getItem(JD7QuestStateKey);
+  if (!saved) return;
+
+  const data = JSON.parse(saved);
+  const today = new Date().toISOString().slice(0, 10);
+
+  // если день сменился — daily обнуляем
+  if (data.date !== today) return;
+
+  JD7Quests.forEach(q => {
+    const savedQuest = data.quests[q.id];
+    if (savedQuest) q.done = savedQuest.done;
+  });
+}
+
+function jd7SaveQuestState() {
+  const today = new Date().toISOString().slice(0, 10);
+  const map = {};
+  JD7Quests.forEach(q => {
+    map[q.id] = { done: q.done };
+  });
+
+  localStorage.setItem(JD7QuestStateKey, JSON.stringify({
+    date: today,
+    quests: map
+  }));
+}
   function renderQuests() {
     const box = document.getElementById('quests');
     box.innerHTML = "";
