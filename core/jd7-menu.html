@@ -1,77 +1,63 @@
 <style>
-  .jd7-menu {
-    width: 100%;
-    padding: 15px 20px;
-    background: #111;
-    border-bottom: 1px solid #222;
+  #jd7-menu-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    padding: 12px 20px;
+    background: #111;
+    border-bottom: 1px solid #333;
   }
 
-  .jd7-logo {
+  #jd7-burger {
+    font-size: 26px;
+    cursor: pointer;
     color: #7df9ff;
-    font-weight: bold;
+  }
+
+  #jd7-links {
+    display: none;
+    flex-direction: column;
+    background: #111;
+    padding: 10px 20px;
+  }
+
+  #jd7-links.open {
+    display: flex;
+  }
+
+  #jd7-links a {
+    color: #7df9ff;
+    padding: 10px 0;
+    text-decoration: none;
     font-size: 18px;
   }
 
-  .jd7-links {
-    display: flex;
-    gap: 20px;
-  }
-
-  .jd7-links a {
-    color: #7df9ff;
-    text-decoration: none;
-    font-size: 14px;
-    opacity: 0.8;
-  }
-
-  .jd7-links a:hover {
-    opacity: 1;
-  }
-
-  /* MOBILE MODE */
-  @media (max-width: 600px) {
-    .jd7-links {
+  /* Desktop mode */
+  @media (min-width: 700px) {
+    #jd7-burger {
       display: none;
-      flex-direction: column;
-      background: #111;
-      padding: 15px;
-      border-top: 1px solid #222;
     }
-
-    .jd7-links.open {
+    #jd7-links {
       display: flex !important;
+      flex-direction: row;
+      gap: 20px;
+      background: none;
+      padding: 0;
     }
-
-    .jd7-burger {
-      display: block;
-      font-size: 22px;
-      color: #7df9ff;
-      cursor: pointer;
-    }
-  }
-
-  @media (min-width: 601px) {
-    .jd7-burger {
-      display: none;
+    #jd7-links a {
+      padding: 0;
     }
   }
 </style>
 
-<div class="jd7-menu">
-  <div class="jd7-logo">JD7</div>
+<div id="jd7-menu-container">
+  <div id="jd7-burger" onclick="jd7ToggleMenu()">☰</div>
 
-  <div class="jd7-burger" onclick="jd7ToggleMenu()">☰</div>
-
-  <div class="jd7-links" id="jd7-links">
+  <div id="jd7-links">
     <a href="/world/">WORLD</a>
     <a href="/school/">SCHOOL</a>
     <a href="/nft/">NFT</a>
     <a href="/bots/">BOTS</a>
+    <a href="/questrun/">QUEST</a>
   </div>
 </div>
