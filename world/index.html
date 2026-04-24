@@ -70,6 +70,44 @@
     font-size: 16px;
     opacity: 0.8;
   }
+.orbit {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: #111;
+  border: 1px solid #222;
+  margin-bottom: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.orbit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(125, 249, 255, 0.25);
+  border-color: #7df9ff;
+}
+
+.orbit-title {
+  font-weight: bold;
+  color: #7df9ff;
+}
+
+.orbit-desc {
+  opacity: 0.85;
+  font-size: 14px;
+}
+
+/* Лёгкая пульсация для всей карты */
+.map-container {
+  animation: jd7Pulse 6s ease-in-out infinite;
+}
+
+@keyframes jd7Pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.01); }
+  100% { transform: scale(1); }
+}
 </style>
 </head>
 
