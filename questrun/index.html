@@ -19,22 +19,7 @@
       color: #7df9ff;
       margin-bottom: 20px;
     }
-.progress-bar {
-  width: 100%;
-  height: 10px;
-  background: #222;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 10px;
-  border: 1px solid #333;
-}
 
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #7df9ff, #ffcc66);
-  width: 0%;
-  transition: width 0.4s ease;
-}
     .quest {
       background: rgba(255,255,255,0.05);
       border: 1px solid #333;
@@ -68,6 +53,24 @@
       background: #444;
       color: #888;
       cursor: default;
+    }
+
+    /* Progress bar */
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      border: 1px solid #333;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #7df9ff, #ffcc66);
+      width: 0%;
+      transition: width 0.4s ease;
     }
   </style>
 </head>
@@ -224,9 +227,14 @@ function renderQuests() {
 
     let progressHTML = "";
     if (q.type === "weekly") {
+      const percent = Math.min(100, (q.progress / q.goal) * 100);
+
       progressHTML = `
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:${percent}%"></div>
+        </div>
         <div style="opacity:0.7;margin-bottom:6px;">
-          Progress: ${q.progress} / ${q.goal}
+          ${q.progress} / ${q.goal}
         </div>
       `;
     }
