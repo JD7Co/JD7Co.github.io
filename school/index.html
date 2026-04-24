@@ -76,7 +76,20 @@
     }
   </script>
 </head>
+<script>
+  function toggleTasks(id) {
+    const block = document.getElementById(id);
+    block.style.display = block.style.display === "block" ? "none" : "block";
+  }
 
+  // Простейшая модель прогресса (можно будет связать с реальными данными)
+  const currentXP = 120;
+  const maxXP = 300;
+  const percent = Math.min(100, (currentXP / maxXP) * 100);
+
+  document.getElementById('xp-bar').style.width = percent + '%';
+  document.getElementById('xp-text').innerText = 'Current XP: ' + currentXP + ' / ' + maxXP;
+</script>
 <body>
 
 <h1>JD7 SCHOOL LUNA</h1>
