@@ -155,7 +155,9 @@ function jd7SaveQuestState() {
   jd7SaveQuestState();
   renderQuests();
 }
-
+  jd7LoadQuestState();
+  renderQuests();
+  jd7UpdateXPUI();
   renderQuests();
   jd7UpdateXPUI();
 </script>
