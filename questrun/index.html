@@ -1,292 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
   <title>JD7 QUESTRUN</title>
-  <script src="/core/jd7-core.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CORE STYLES -->
+  <link rel="stylesheet" href="/core/theme.css">
+  <link rel="stylesheet" href="/core/crystal.css">
+  <link rel="stylesheet" href="/core/access.css">
+  <link rel="stylesheet" href="/core/quest.css">
 
   <style>
     body {
-      background: #0a0a0a;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      padding: 30px 20px;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.6s ease, color 0.6s ease;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      overflow-x: hidden;
     }
 
-    h1 {
-      text-align: center;
-      color: #7df9ff;
-      margin-bottom: 20px;
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 16px 80px;
     }
 
-    .quest {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid #333;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
+    .title {
+      margin-top: 40px;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.2;
     }
 
-    .quest-title {
-      font-size: 20px;
-      color: #ffcc66;
-      margin-bottom: 10px;
-    }
-
-    .quest-desc {
+    .subtitle {
+      margin-top: 12px;
+      font-size: 15px;
       opacity: 0.8;
+      line-height: 1.6;
+      max-width: 640px;
+    }
+
+    .xp-box {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .xp-title {
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.7;
       margin-bottom: 10px;
     }
 
-    .quest-btn {
-      background: #7df9ff;
-      color: #000;
-      padding: 10px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      display: inline-block;
+    .xp-value {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 14px;
     }
 
-    .quest-btn.completed {
-      background: #444;
-      color: #888;
-      cursor: default;
+    .mission-section {
+      margin-top: 40px;
     }
 
-    /* Progress bar */
-    .progress-bar {
-      width: 100%;
-      height: 10px;
-      background: #222;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 10px;
-      border: 1px solid #333;
+    .mission-title {
+      font-size: 18px;
+      margin-bottom: 12px;
+      font-weight: 600;
     }
 
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #7df9ff, #ffcc66);
-      width: 0%;
-      transition: width 0.4s ease;
+    .mission-list {
+      display: grid;
+      gap: 16px;
     }
   </style>
 </head>
 
-<body>
+<body class="theme-dark">
 
-<div id="jd7-menu"></div>
-<script>
-  fetch('/core/jd7-menu.html')
-    .then(r => r.text())
-    .then(html => document.getElementById('jd7-menu').innerHTML = html);
-</script>
+  <!-- NAVIGATION -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <a href="/" class="nav-link">WORLD</a>
+      <a href="/school/" class="nav-link">SCHOOL</a>
 
-<h1>JD7 QUESTRUN</h1>
-
-<div id="quests"></div>
-
-<script>
-/* ============================
-      QUEST LIST
-============================ */
-
-const JD7Quests = [
-
-  /* DAILY */
-  {
-    id: "d1",
-    type: "daily",
-    title: "Daily — Identity Ping",
-    desc: "Открой SCHOOL и проверь свой уровень.",
-    xp: 15,
-    done: false
-  },
-  {
-    id: "d2",
-    type: "daily",
-    title: "Daily — Motion Touch",
-    desc: "Сделай 1 короткое видео или рилс.",
-    xp: 20,
-    done: false
-  },
-
-  /* CORE */
-  {
-    id: "c1",
-    type: "core",
-    title: "NFT Initiation",
-    desc: "Создай своё первое NFT metadata.",
-    xp: 50,
-    done: false
-  },
-
-  /* WEEKLY */
-  {
-    id: "w1",
-    type: "weekly",
-    title: "Weekly — Motion Marathon",
-    desc: "Создай 3 клипа или рилса за неделю.",
-    xp: 120,
-    progress: 0,
-    goal: 3,
-    done: false
-  },
-  {
-    id: "w2",
-    type: "weekly",
-    title: "Weekly — NFT Builder",
-    desc: "Создай 1 NFT metadata за неделю.",
-    xp: 150,
-    progress: 0,
-    goal: 1,
-    done: false
-  }
-];
-
-const JD7QuestStateKey = "JD7QuestState";
-
-/* ============================
-      WEEK CHECK
-============================ */
-
-function jd7IsSameWeek(date1, date2) {
-  const d1 = new Date(date1);
-  const d2 = new Date(date2);
-
-  const week1 = Math.floor((d1 - new Date(d1.getFullYear(),0,1)) / 604800000);
-  const week2 = Math.floor((d2 - new Date(d2.getFullYear(),0,1)) / 604800000);
-
-  return d1.getFullYear() === d2.getFullYear() && week1 === week2;
-}
-
-/* ============================
-      LOAD STATE
-============================ */
-
-function jd7LoadQuestState() {
-  const saved = localStorage.getItem(JD7QuestStateKey);
-  if (!saved) return;
-
-  const data = JSON.parse(saved);
-  const today = new Date().toISOString().slice(0, 10);
-
-  JD7Quests.forEach(q => {
-    const savedQuest = data.quests[q.id];
-    if (!savedQuest) return;
-
-    if (q.type === "daily") {
-      if (data.date === today) q.done = savedQuest.done;
-    }
-
-    if (q.type === "weekly") {
-      if (jd7IsSameWeek(data.date, today)) {
-        q.done = savedQuest.done;
-        q.progress = savedQuest.progress;
-      }
-    }
-
-    if (q.type === "core") {
-      q.done = savedQuest.done;
-    }
-  });
-}
-
-/* ============================
-      SAVE STATE
-============================ */
-
-function jd7SaveQuestState() {
-  const today = new Date().toISOString().slice(0, 10);
-  const map = {};
-
-  JD7Quests.forEach(q => {
-    map[q.id] = {
-      done: q.done,
-      progress: q.progress ?? 0
-    };
-  });
-
-  localStorage.setItem(JD7QuestStateKey, JSON.stringify({
-    date: today,
-    quests: map
-  }));
-}
-
-/* ============================
-      RENDER
-============================ */
-
-function renderQuests() {
-  const box = document.getElementById("quests");
-  box.innerHTML = "";
-
-  JD7Quests.forEach(q => {
-
-    let progressHTML = "";
-    if (q.type === "weekly") {
-      const percent = Math.min(100, (q.progress / q.goal) * 100);
-
-      progressHTML = `
-        <div class="progress-bar">
-          <div class="progress-fill" style="width:${percent}%"></div>
-        </div>
-        <div style="opacity:0.7;margin-bottom:6px;">
-          ${q.progress} / ${q.goal}
-        </div>
-      `;
-    }
-
-    box.innerHTML += `
-      <div class="quest">
-        <div class="quest-title">${q.title}</div>
-        <div class="quest-desc">${q.desc}</div>
-        ${progressHTML}
-        <div class="quest-btn ${q.done ? 'completed' : ''}"
-             onclick="${q.done ? '' : `completeQuest('${q.id}')`}">
-          ${q.done ? 'Completed' : `Claim +${q.xp} XP`}
-        </div>
+      <div class="nav-crystal-wrapper">
+        <button id="jd7-crystal" class="crystal-button">
+          <div class="crystal-orbit">
+            <div class="crystal-shell">
+              <div class="crystal-plasma"></div>
+              <div class="crystal-core"></div>
+              <div class="crystal-glow"></div>
+            </div>
+            <div class="crystal-label">JD7 THEME</div>
+          </div>
+        </button>
       </div>
-    `;
-  });
-}
 
-/* ============================
-      COMPLETE QUEST
-============================ */
+      <a href="/questrun/" class="nav-link">QUESTRUN</a>
+      <a href="/nft/" class="nav-link">NFT</a>
+      <a href="/bots/" class="nav-link">BOTS</a>
+    </div>
+  </header>
 
-function completeQuest(id) {
-  const quest = JD7Quests.find(q => q.id === id);
-  if (!quest || quest.done) return;
+  <!-- CONTENT -->
+  <div class="page">
 
-  if (quest.type === "weekly") {
-    if (quest.progress < quest.goal) {
-      quest.progress++;
-      if (quest.progress >= quest.goal) {
-        quest.done = true;
-        jd7AddXP(quest.xp);
-      }
-    }
-  } else {
-    quest.done = true;
-    jd7AddXP(quest.xp);
-  }
+    <h1 class="title">JD7 QUESTRUN</h1>
+    <p class="subtitle">
+      Система миссий, уровней, XP и динамической сложности.  
+      5 категорий миссий · 5 уровней сложности · гибридные прогресс‑бары.
+    </p>
 
-  jd7SaveQuestState();
-  renderQuests();
-}
+    <!-- XP BOX -->
+    <div class="xp-box">
+      <div class="xp-title">Твой уровень</div>
+      <div class="xp-value" id="level-display">L1</div>
 
-/* ============================
-      INIT
-============================ */
+      <div class="xp-title">Опыт</div>
+      <div class="xp-bar">
+        <div class="xp-bar-fill" id="xp-fill"></div>
+      </div>
+      <div class="xp-bar-text" id="xp-text">0 / 100 XP</div>
+    </div>
 
-jd7LoadQuestState();
-renderQuests();
-jd7UpdateXPUI();
+    <!-- MISSION SECTIONS -->
+    <div id="mission-container"></div>
 
-</script>
+  </div>
 
-</body>
-</html>
+  <!-- ACCESS PANEL + BUTTON -->
+  <div id="access-backdrop" class="access-panel-backdrop"></div>
+
+  <div id="access-panel" class="access-panel">
+    <div class="access-panel-handle"></div>
+
+    <div class="access-panel-header">
+      <div>
+        <div class="access-panel-title">JD7 ACCESS PANEL</div>
+        <div class="access-panel-sub">Цветовые режимы для разных типов зрения</div>
+      </div>
+      <button id="access-close" class="access-panel-close">×</button>
+    </div>
+
+    <div class="access-grid">
+      <button class="access-chip" data-filter="green">
+        <div class="access-dot green"></div>
+        <div class="access-chip-label">Green</div>
+        <div class="access-chip-note">Deuteranopia</div>
+      </button>
+
+      <button class="access-chip" data-filter="red">
+        <div class="access-dot red"></div>
+        <div class="access-chip-label">Red</div>
+        <div class="access-chip-note">Protanopia</div>
+      </button>
+
+      <button class="access-chip" data-filter="yellow">
+        <div class="access-dot yellow"></div>
+        <div class="access-chip-label">Yellow</div>
+        <div class="access-chip-note">Low Contrast</div>
+      </button>
+
+      <button class="access-chip" data-filter="blue">
+        <div class="access-dot blue"></div>
+        <div class="access-chip-label">Blue</div>
