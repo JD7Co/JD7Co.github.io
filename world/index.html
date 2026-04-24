@@ -1,119 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="/core/jd7-core.js"></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JD7 WORLD — LUNA Map</title>
+  <meta charset="UTF-8">
+  <title>JD7 WORLD — LUNA MAP</title>
+  <script src="/core/jd7-core.js"></script>
 
   <style>
-.nav-link {
-  color: #7df9ff;
-  text-decoration: none;
-  font-size: 16px;
-  opacity: 0.8;
-}
-.nav-link:hover {
-  opacity: 1;
-}
-.orbit {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-  body {
-    background: #0a0a0a;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 40px 20px;
-  }
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
 
-  h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
-    color: #7df9ff;
-  }
+    h1 {
+      text-align: center;
+      color: #7df9ff;
+      margin-bottom: 20px;
+    }
 
-  .map-container {
-    margin-top: 40px;
-  }
+    .orbit {
+      display: block;
+      padding: 16px;
+      margin-bottom: 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #333;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #fff;
+    }
 
-  .orbit {
-    margin: 20px 0;
-    padding: 20px;
-    border: 1px solid #333;
-    border-radius: 10px;
-    background: rgba(255,255,255,0.03);
-    animation: pulse 4s infinite ease-in-out;
-  }
+    .orbit-title {
+      font-size: 20px;
+      color: #ffcc66;
+    }
 
-  .orbit:nth-child(1) { animation-delay: 0s; }
-  .orbit:nth-child(2) { animation-delay: 0.4s; }
-  .orbit:nth-child(3) { animation-delay: 0.8s; }
-  .orbit:nth-child(4) { animation-delay: 1.2s; }
-  .orbit:nth-child(5) { animation-delay: 1.6s; }
-
-  @keyframes pulse {
-    0% { transform: scale(1); border-color: #333; }
-    50% { transform: scale(1.03); border-color: #7df9ff; }
-    100% { transform: scale(1); border-color: #333; }
-  }
-
-  .orbit-title {
-    font-size: 22px;
-    color: #ffcc66;
-    margin-bottom: 10px;
-  }
-
-  .orbit-desc {
-    font-size: 16px;
-    opacity: 0.8;
-  }
-.orbit {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  padding: 16px 20px;
-  border-radius: 12px;
-  background: #111;
-  border: 1px solid #222;
-  margin-bottom: 12px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.orbit:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 18px rgba(125, 249, 255, 0.25);
-  border-color: #7df9ff;
-}
-
-.orbit-title {
-  font-weight: bold;
-  color: #7df9ff;
-}
-
-.orbit-desc {
-  opacity: 0.85;
-  font-size: 14px;
-}
-
-/* Лёгкая пульсация для всей карты */
-.map-container {
-  animation: jd7Pulse 6s ease-in-out infinite;
-}
-
-@keyframes jd7Pulse {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.01); }
-  100% { transform: scale(1); }
-}
-</style>
+    .orbit-desc {
+      opacity: 0.8;
+      margin-top: 4px;
+    }
+  </style>
 </head>
 
 <body>
+
 <div id="jd7-menu"></div>
-<div style="text-align:center;margin-top:20px;color:#7df9ff;font-size:18px;">
+<script>
+  fetch('/core/jd7-menu.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('jd7-menu').innerHTML = html);
+</script>
+
+<h1>JD7 WORLD — LUNA MAP</h1>
+
+<div style="text-align:center;margin-bottom:20px;color:#7df9ff;font-size:18px;">
   <span id="world-level">Level 1</span>
 </div>
 
@@ -124,51 +64,31 @@
   }
   jd7UpdateWorldLevel();
 </script>
-<script>
-  fetch('/core/jd7-menu.html')
-    .then(r => r.text())
-    .then(html => document.getElementById('jd7-menu').innerHTML = html);
 
-<script>
-  function jd7UpdateWorldLevel() {
-    const el = document.getElementById('world-level');
-    if (el) el.innerText = `Level ${JD7State.level}`;
-  }
-  jd7UpdateWorldLevel();
-</script>
-</script>
-<h1>JD7 WORLD — LUNA MAP</h1>
-<p>Главная карта экосистемы JD7. Переходы между модулями.</p>
+<a class="orbit" href="/avatars/">
+  <div class="orbit-title">Orbit 1 — Avatars</div>
+  <div class="orbit-desc">10 JD7 Signature Mix ролей. Основная идентичность.</div>
+</a>
 
-<div class="map-container">
+<a class="orbit" href="/clips/">
+  <div class="orbit-title">Orbit 2 — Clips</div>
+  <div class="orbit-desc">Видео, вертикальные рилсы, клипы, переходы.</div>
+</a>
 
-  <a href="/avatars/" class="orbit">
-    <div class="orbit-title">Orbit 1 — Avatars</div>
-    <div class="orbit-desc">10 JD7 Signature Mix ролей. Основная идентичность.</div>
-  </a>
+<a class="orbit" href="/nft/">
+  <div class="orbit-title">Orbit 3 — NFT</div>
+  <div class="orbit-desc">NFT Keys, Avatar Series, Metadata Hub.</div>
+</a>
 
-  <a href="/clips/" class="orbit">
-    <div class="orbit-title">Orbit 2 — Clips</div>
-    <div class="orbit-desc">Видео, вертикальные рилсы, клипы, переходы.</div>
-  </a>
+<a class="orbit" href="/school/">
+  <div class="orbit-title">Orbit 4 — School LUNA</div>
+  <div class="orbit-desc">Уровни, задания, обучение, XP.</div>
+</a>
 
-  <a href="/nft/" class="orbit">
-    <div class="orbit-title">Orbit 3 — NFT</div>
-    <div class="orbit-desc">NFT Keys, Avatar Series, Metadata Hub.</div>
-  </a>
+<a class="orbit" href="/bots/">
+  <div class="orbit-title">Orbit 5 — Bots</div>
+  <div class="orbit-desc">JD7BOT, Security Bot, Navigation Bot.</div>
+</a>
 
-  <a href="/school/" class="orbit">
-    <div class="orbit-title">Orbit 4 — School LUNA</div>
-    <div class="orbit-desc">Уровни, задания, обучение, XP.</div>
-  </a>
-
-  <a href="/bots/" class="orbit">
-    <div class="orbit-title">Orbit 5 — Bots</div>
-    <div class="orbit-desc">JD7BOT, Security Bot, Navigation Bot.</div>
-  </a>
-</div>
-  <div style="text-align:center;margin-top:40px;">
-  <a href="/school/" class="nav-link">→ Go to JD7 SCHOOL LUNA</a>
-</div>
 </body>
 </html>
