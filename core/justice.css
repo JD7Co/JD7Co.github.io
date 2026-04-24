@@ -1,0 +1,41 @@
+/* JUSTICE CASE CARD */
+
+.case-card {
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: rgba(10,0,10,0.6);
+  border: 1px solid rgba(255,80,120,0.55);
+  box-shadow: 0 0 18px rgba(255,80,120,0.35);
+  transition: 0.25s ease;
+}
+
+.case-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(255,80,120,0.55);
+}
+
+.case-tag {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  opacity: 0.75;
+}
+
+.case-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.case-desc {
+  font-size: 13px;
+  opacity: 0.85;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.case-note {
+  font-size: 11px;
+  opacity: 0.7;
+}
