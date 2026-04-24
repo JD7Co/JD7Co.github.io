@@ -1,6 +1,5 @@
 // === JD7 GLOBAL STATE ===
 // Хранит XP, уровень, прогресс, настройки
-// В будущем будет заменено на localStorage / cloud sync
 let JD7State = {
   xp: 120,
   level: 1,
@@ -21,64 +20,9 @@ function jd7LoadState() {
 }
 jd7LoadState();
 
-// JD7 CORE — базовые функции
+// === JD7 XP SYSTEM ===
 
-// Тоггл блоков (используется в SCHOOL)
-function jd7Toggle(id) {
-  const block = document.getElementById(id);
-  if (!block) return;
-  block.style.display = block.style.display === "block" ? "none" : "block";
-}
-
-// Простейший XP‑движок
-function jd7SetXP(barId, textId, current, max) {
-  const bar = document.getElementById(barId);
-  const text = document.getElementById(textId);
-  if (!bar || !text) return;
-
-  const percent = Math.min(100, (current / max) * 100);
-  bar.style.width = percent + '%';
-  text.innerText = 'Current XP: ' + current + ' / ' + max;
-}
-// JD7 CORE — базовые функции для всех модулей
-
-// Тоггл блоков (используется в SCHOOL)
-function jd7Toggle(id) {
-  const block = document.getElementById(id);
-  if (!block) return;
-  block.style.display = block.style.display === "block" ? "none" : "block";
-}
-
-// XP‑движок (универсальный)
-function jd7SetXP(barId, textId, current, max) {
-  const bar = document.getElementById(barId);
-  const text = document.getElementById(textId);
-  if (!bar || !text) return;
-
-  const percent = Math.min(100, (current / max) * 100);
-  bar.style.width = percent + '%';
-  text.innerText = 'Current XP: ' + current + ' / ' + max;
-}
-
-// Навигация между модулями (будет расширяться)
-function jd7Go(url) {
-  window.location.href = url;
-}
-// Меню (бургер)
-function jd7ToggleMenu() {
-  const links = document.getElementById('jd7-links');
-  if (links) {
-    links.classList.toggle('open');
-  }
-}
-// JD7 XP SYSTEM — глобальное состояние
-const JD7State = {
-  xp: 120,
-  level: 1,
-  nextLevelXP: 300
-};
-
-// Формула получения XP
+// Добавление XP
 function jd7AddXP(amount) {
   JD7State.xp += amount;
 
@@ -90,10 +34,6 @@ function jd7AddXP(amount) {
   }
 
   jd7SaveState();
-  jd7UpdateXPUI();
-}
-
-  // Обновление UI если есть
   jd7UpdateXPUI();
 }
 
@@ -110,4 +50,19 @@ function jd7UpdateXPUI() {
   bar.style.width = percent + '%';
   text.innerText = `XP: ${JD7State.xp} / ${JD7State.nextLevelXP}`;
   level.innerText = `Level ${JD7State.level}`;
+}
+
+// === MENU ===
+function jd7ToggleMenu() {
+  const links = document.getElementById('jd7-links');
+  if (links) {
+    links.classList.toggle('open');
+  }
+}
+
+// === TOGGLE BLOCKS ===
+function toggleTasks(id) {
+  const block = document.getElementById(id);
+  if (!block) return;
+  block.style.display = block.style.display === "block" ? "none" : "block";
 }
