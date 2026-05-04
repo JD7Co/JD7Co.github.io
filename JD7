@@ -1,0 +1,91 @@
+JD7/
+  README.md
+
+  /docs
+    JD7_Architecture.md
+    JD7_System_OS.md
+    JD7_System_Flow.md
+    JD7_Avatar_DNA.md
+    JD7_Avatar_Evolution.md
+    JD7_Avatar_Skills.md
+    JD7_Avatar_Power.md
+    JD7_Security_Model.md
+    JD7_Storage_Model.md
+    JD7_Metadata_Spec.md
+    JD7_API_Spec.md
+    JD7_UI_UX.md
+    JD7_Implementation_Plan.md
+    JD7_Blueprint.md
+
+  /android
+    /app
+      build.gradle
+      AndroidManifest.xml
+      /src/main/java/com/jd7/app
+        MainActivity.kt
+        AuthActivity.kt
+        CreatorGateActivity.kt
+
+        SecurityManager.kt
+        SecuritySupervisor.kt
+        LocationTimeService.kt
+
+        AvatarEngine.kt
+        DNAEngine.kt
+        SkillEngine.kt
+        PowerEngine.kt
+        FusionEngine.kt
+        AIEngine.kt
+
+        JD7SystemOS.kt
+        EventDispatcher.kt
+        CommandProcessor.kt
+        StorageController.kt
+        MetadataEngine.kt
+        CreatorKernel.kt
+
+      /src/main/res
+        /layout
+          activity_main.xml
+          activity_auth.xml
+          activity_creator_gate.xml
+          screen_avatar_room.xml
+          screen_ai_chamber.xml
+          screen_fusion_forge.xml
+          screen_skill_matrix.xml
+          screen_power_core.xml
+          screen_sanctum.xml
+        /values
+          colors.xml
+          strings.xml
+          styles.xml
+
+  /schemas
+    avatar_dna.json
+    avatar_stats.json
+    avatar_skills.json
+    fusion_result.json
+    record_metadata.json
+
+  /storage
+    /public
+      ui_settings.json
+    /protected
+      avatars.json
+      dna.json
+      skills.json
+      stats.json
+      fusion.json
+      ai_spirits.json
+    /creator
+      sanctum_config.json
+      world_brain.json
+      creator_keys.json
+      laws.json
+    /records
+      /actions
+        (здесь будут зашифрованные записи)
+
+  /config
+    roles_access.md
+    creator_policies.md
