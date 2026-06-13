@@ -1,0 +1,9 @@
+# Terraform example placeholder for infra
+
+# Copy this file to main.tf and edit provider/backends as required.
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+# Add resources: VPC, ECS/EKS, RDS, S3, IAM, etc.

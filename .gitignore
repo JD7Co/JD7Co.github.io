@@ -1,3 +1,11 @@
-.env
-__pycache__/
+# Byte / OS ignores
+
 *.pyc
+__pycache__/
+.env
+.venv/
+.idea/
+.gradle/
+/local.properties
+/build/
+/.DS_Store

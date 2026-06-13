@@ -1,0 +1,20 @@
+# Docker Compose for local development
+
+version: '3.8'
+services:
+  backend:
+    build: ../backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    volumes:
+      - ../backend:/app
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: jd7
+      POSTGRES_PASSWORD: jd7pass
+      POSTGRES_DB: jd7db
+    ports:
+      - "5432:5432"
