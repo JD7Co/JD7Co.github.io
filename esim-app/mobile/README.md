@@ -1,19 +1,5 @@
-Android (Kotlin) — интеграция партнёрки
+# Android (Kotlin) skeleton for JD7Co eSIM app
 
-Рекомендации по встраиванию реферальной системы в мобильное приложение:
+This folder contains a minimal Android Studio project skeleton configured for Kotlin.
 
-1) Отображение партнёрских предложений
-- Подгружайте список партнёров с бэкенда (GET /partners). В ответе есть referral_url и partner_code.
-- На экране покупки/оформления показывайте метку "Партнёрская цена" и используйте referral_url при переходе на оплату.
-
-2) Отслеживание кликов и конверсий
-- При клике на партнёрское предложение вызывайте POST /partners/{partner_id}/click чтобы записать клик.
-- После успешной покупки вызывайте POST /partners/{partner_id}/conversion с {"amount_usd": <сумма>}.
-
-3) Deep link / install attribution
-- Можно передавать partner_code через ссылку на приложение: jd7co://referral?code=JD7_NOMAD
-- При первом запуске приложения сохраняйте partner_code и отправляйте его в бэкенд для связывания установки с партнёром.
-
-4) Security / Public links
-- Поскольку вы захотели публично встроить партнерские ссылки, убедитесь, что это допустимо по условиям партнёрских программ.
-- Для скрытия реального URL используйте redirect-эндпоинт: /r/{partner_id} который логирует клик и делает серверный редирект на реальный referral_url (хранится в секретах).
+Architecture recommendation: MVVM + Coroutines + Retrofit/OkHttp for network + Google Billing / Play Billing for in-app purchases and partner monetization hooks.
